@@ -1,0 +1,11 @@
+Mini Proyecto
+1. Autenticar con Facebook
+2. Crear tours o ver tours de otros
+3. Al crear tours puede agregar fotos geolocalizadas
+4. Usando el API de Foursquare especificar la ubicación de esa foto
+5. Poder ver en un mapa las diferentes ubicaciones cercanas
+indicar con un pin de diferente color si pertenecen a diferentes tours
+Facebook SDK
+API Foursquare List
+AFNetworking
+Parse.com
