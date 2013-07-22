@@ -1,0 +1,309 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D9043AE179DA7C700445280 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043AD179DA7C700445280 /* UIKit.framework */; };
+		5D9043B0179DA7C700445280 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043AF179DA7C700445280 /* Foundation.framework */; };
+		5D9043B2179DA7C700445280 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043B1179DA7C700445280 /* CoreGraphics.framework */; };
+		5D9043B4179DA7C700445280 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043B3179DA7C700445280 /* CoreData.framework */; };
+		5D9043BA179DA7C700445280 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D9043B8179DA7C700445280 /* InfoPlist.strings */; };
+		5D9043BC179DA7C700445280 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9043BB179DA7C700445280 /* main.m */; };
+		5D9043C0179DA7C700445280 /* MiniPictourAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9043BF179DA7C700445280 /* MiniPictourAppDelegate.m */; };
+		5D9043C2179DA7C700445280 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9043C1179DA7C700445280 /* Default.png */; };
+		5D9043C4179DA7C700445280 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9043C3179DA7C700445280 /* Default@2x.png */; };
+		5D9043C6179DA7C700445280 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9043C5179DA7C700445280 /* Default-568h@2x.png */; };
+		5D9043C9179DA7C700445280 /* MiniPictour.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D9043C7179DA7C700445280 /* MiniPictour.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5D9043AA179DA7C700445280 /* MiniPictour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniPictour.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D9043AD179DA7C700445280 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5D9043AF179DA7C700445280 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5D9043B1179DA7C700445280 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5D9043B3179DA7C700445280 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5D9043B7179DA7C700445280 /* MiniPictour-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MiniPictour-Info.plist"; sourceTree = "<group>"; };
+		5D9043B9179DA7C700445280 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5D9043BB179DA7C700445280 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5D9043BD179DA7C700445280 /* MiniPictour-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiniPictour-Prefix.pch"; sourceTree = "<group>"; };
+		5D9043BE179DA7C700445280 /* MiniPictourAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiniPictourAppDelegate.h; sourceTree = "<group>"; };
+		5D9043BF179DA7C700445280 /* MiniPictourAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiniPictourAppDelegate.m; sourceTree = "<group>"; };
+		5D9043C1179DA7C700445280 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5D9043C3179DA7C700445280 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5D9043C5179DA7C700445280 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5D9043C8179DA7C700445280 /* MiniPictour.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MiniPictour.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5D9043A7179DA7C700445280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D9043AE179DA7C700445280 /* UIKit.framework in Frameworks */,
+				5D9043B0179DA7C700445280 /* Foundation.framework in Frameworks */,
+				5D9043B2179DA7C700445280 /* CoreGraphics.framework in Frameworks */,
+				5D9043B4179DA7C700445280 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D9043A1179DA7C700445280 = {
+			isa = PBXGroup;
+			children = (
+				5D9043B5179DA7C700445280 /* MiniPictour */,
+				5D9043AC179DA7C700445280 /* Frameworks */,
+				5D9043AB179DA7C700445280 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5D9043AB179DA7C700445280 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D9043AA179DA7C700445280 /* MiniPictour.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5D9043AC179DA7C700445280 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D9043AD179DA7C700445280 /* UIKit.framework */,
+				5D9043AF179DA7C700445280 /* Foundation.framework */,
+				5D9043B1179DA7C700445280 /* CoreGraphics.framework */,
+				5D9043B3179DA7C700445280 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D9043B5179DA7C700445280 /* MiniPictour */ = {
+			isa = PBXGroup;
+			children = (
+				5D9043BE179DA7C700445280 /* MiniPictourAppDelegate.h */,
+				5D9043BF179DA7C700445280 /* MiniPictourAppDelegate.m */,
+				5D9043C7179DA7C700445280 /* MiniPictour.xcdatamodeld */,
+				5D9043B6179DA7C700445280 /* Supporting Files */,
+			);
+			path = MiniPictour;
+			sourceTree = "<group>";
+		};
+		5D9043B6179DA7C700445280 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5D9043B7179DA7C700445280 /* MiniPictour-Info.plist */,
+				5D9043B8179DA7C700445280 /* InfoPlist.strings */,
+				5D9043BB179DA7C700445280 /* main.m */,
+				5D9043BD179DA7C700445280 /* MiniPictour-Prefix.pch */,
+				5D9043C1179DA7C700445280 /* Default.png */,
+				5D9043C3179DA7C700445280 /* Default@2x.png */,
+				5D9043C5179DA7C700445280 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5D9043A9179DA7C700445280 /* MiniPictour */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D9043CC179DA7C700445280 /* Build configuration list for PBXNativeTarget "MiniPictour" */;
+			buildPhases = (
+				5D9043A6179DA7C700445280 /* Sources */,
+				5D9043A7179DA7C700445280 /* Frameworks */,
+				5D9043A8179DA7C700445280 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MiniPictour;
+			productName = MiniPictour;
+			productReference = 5D9043AA179DA7C700445280 /* MiniPictour.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5D9043A2179DA7C700445280 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MiniPictour;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Miguel Elvir";
+			};
+			buildConfigurationList = 5D9043A5179DA7C700445280 /* Build configuration list for PBXProject "MiniPictour" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5D9043A1179DA7C700445280;
+			productRefGroup = 5D9043AB179DA7C700445280 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D9043A9179DA7C700445280 /* MiniPictour */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5D9043A8179DA7C700445280 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D9043BA179DA7C700445280 /* InfoPlist.strings in Resources */,
+				5D9043C2179DA7C700445280 /* Default.png in Resources */,
+				5D9043C4179DA7C700445280 /* Default@2x.png in Resources */,
+				5D9043C6179DA7C700445280 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5D9043A6179DA7C700445280 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D9043BC179DA7C700445280 /* main.m in Sources */,
+				5D9043C0179DA7C700445280 /* MiniPictourAppDelegate.m in Sources */,
+				5D9043C9179DA7C700445280 /* MiniPictour.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5D9043B8179DA7C700445280 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D9043B9179DA7C700445280 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5D9043CA179DA7C700445280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5D9043CB179DA7C700445280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5D9043CD179DA7C700445280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MiniPictour/MiniPictour-Prefix.pch";
+				INFOPLIST_FILE = "MiniPictour/MiniPictour-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5D9043CE179DA7C700445280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MiniPictour/MiniPictour-Prefix.pch";
+				INFOPLIST_FILE = "MiniPictour/MiniPictour-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5D9043A5179DA7C700445280 /* Build configuration list for PBXProject "MiniPictour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D9043CA179DA7C700445280 /* Debug */,
+				5D9043CB179DA7C700445280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D9043CC179DA7C700445280 /* Build configuration list for PBXNativeTarget "MiniPictour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D9043CD179DA7C700445280 /* Debug */,
+				5D9043CE179DA7C700445280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5D9043C7179DA7C700445280 /* MiniPictour.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5D9043C8179DA7C700445280 /* MiniPictour.xcdatamodel */,
+			);
+			currentVersion = 5D9043C8179DA7C700445280 /* MiniPictour.xcdatamodel */;
+			path = MiniPictour.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5D9043A2179DA7C700445280 /* Project object */;
+}
