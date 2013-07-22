@@ -7,7 +7,8 @@
 //
 
 #import "MiniPictourAppDelegate.h"
-
+#import <Parse/Parse.h>
+#import "MiniPictourViewController.h"
 @implementation MiniPictourAppDelegate
 
 - (void)dealloc
@@ -27,6 +28,16 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
+    //Parse Configuration
+    [Parse setApplicationId:@"X3iEwzzDFUjZvTIcZzPHTYbCCC5cJiln5tWl48ft"
+                  clientKey:@"CZC3zizMFFK95wuqzEGWUAOAkvFNkhpDoe8gaRMT"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    //Application main controller:
+    MiniPictourViewController *initialController = [[MiniPictourViewController alloc] init];
+    self.window.rootViewController = initialController;
+    
+    [initialController release];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
