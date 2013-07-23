@@ -17,7 +17,6 @@
 		5D9043C2179DA7C700445280 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9043C1179DA7C700445280 /* Default.png */; };
 		5D9043C4179DA7C700445280 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9043C3179DA7C700445280 /* Default@2x.png */; };
 		5D9043C6179DA7C700445280 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9043C5179DA7C700445280 /* Default-568h@2x.png */; };
-		5D9043C9179DA7C700445280 /* MiniPictour.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D9043C7179DA7C700445280 /* MiniPictour.xcdatamodeld */; };
 		5D9043D0179DAE1400445280 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043CF179DAE1400445280 /* FacebookSDK.framework */; };
 		5D9043D2179DAE8600445280 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D9043D1179DAE8600445280 /* FacebookSDKResources.bundle */; };
 		5D9043D9179DAF2B00445280 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043D3179DAF2B00445280 /* Accounts.framework */; };
@@ -64,7 +63,6 @@
 		5D9043C1179DA7C700445280 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5D9043C3179DA7C700445280 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5D9043C5179DA7C700445280 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		5D9043C8179DA7C700445280 /* MiniPictour.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MiniPictour.xcdatamodel; sourceTree = "<group>"; };
 		5D9043CF179DAE1400445280 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		5D9043D1179DAE8600445280 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		5D9043D3179DAF2B00445280 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -191,7 +189,6 @@
 			children = (
 				5D9043BE179DA7C700445280 /* MiniPictourAppDelegate.h */,
 				5D9043BF179DA7C700445280 /* MiniPictourAppDelegate.m */,
-				5D9043C7179DA7C700445280 /* MiniPictour.xcdatamodeld */,
 				5D9044B8179DD4F800445280 /* MiniPictourViewController.h */,
 				5D9044B9179DD4F800445280 /* MiniPictourViewController.m */,
 				5D9044BA179DD4F800445280 /* MiniPictourViewController.xib */,
@@ -310,7 +307,6 @@
 			files = (
 				5D9043BC179DA7C700445280 /* main.m in Sources */,
 				5D9043C0179DA7C700445280 /* MiniPictourAppDelegate.m in Sources */,
-				5D9043C9179DA7C700445280 /* MiniPictour.xcdatamodeld in Sources */,
 				5D9044AF179DBB7200445280 /* AFHTTPClient.m in Sources */,
 				5D9044B0179DBB7200445280 /* AFHTTPRequestOperation.m in Sources */,
 				5D9044B1179DBB7200445280 /* AFImageRequestOperation.m in Sources */,
@@ -443,21 +439,9 @@
 				5D9043CE179DA7C700445280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		5D9043C7179DA7C700445280 /* MiniPictour.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5D9043C8179DA7C700445280 /* MiniPictour.xcdatamodel */,
-			);
-			currentVersion = 5D9043C8179DA7C700445280 /* MiniPictour.xcdatamodel */;
-			path = MiniPictour.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 5D9043A2179DA7C700445280 /* Project object */;
 }
