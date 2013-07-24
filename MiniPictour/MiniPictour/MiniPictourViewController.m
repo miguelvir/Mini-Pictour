@@ -9,11 +9,11 @@
 #import "MiniPictourViewController.h"
 #import "MiniPictourMapViewController.h"
 @interface MiniPictourViewController ()
-@property (retain) IBOutlet UIActivityIndicatorView *loadingImage;
-@property (retain) IBOutlet UIButton *login_logoutButton;
-@property (retain) IBOutlet UIView *imageView;
-@property (retain) IBOutlet FBProfilePictureView *userImage;
-@property (retain) IBOutlet UIButton *goToMapButton;
+@property (assign) IBOutlet UIActivityIndicatorView *loadingImage;
+@property (assign) IBOutlet UIButton *login_logoutButton;
+@property (assign) IBOutlet UIView *imageView;
+@property (retain) FBProfilePictureView *userImage;
+@property (assign) IBOutlet UIButton *goToMapButton;
 @end
 
 @implementation MiniPictourViewController
@@ -64,12 +64,6 @@
         self.goToMapButton.hidden = NO;
 
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    NSLog(@"ViewWillAppear");
 }
 - (IBAction)loginButtonTaped:(UIButton *)sender  {
     // The permissions requested from the user

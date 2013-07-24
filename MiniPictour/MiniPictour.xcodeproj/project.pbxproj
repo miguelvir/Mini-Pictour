@@ -48,6 +48,9 @@
 		5D9044D0179DD89100445280 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9044C7179DD89100445280 /* SystemConfiguration.framework */; };
 		5D93469417A02DC400A75FAA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D93469317A02DC400A75FAA /* MapKit.framework */; };
 		5D93469717A045D000A75FAA /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93469617A045D000A75FAA /* Annotation.m */; };
+		5D93469B17A061DA00A75FAA /* TourCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93469917A061DA00A75FAA /* TourCreationViewController.m */; };
+		5D93469C17A061DA00A75FAA /* TourCreationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D93469A17A061DA00A75FAA /* TourCreationViewController.xib */; };
+		5D93469F17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93469E17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m */; };
 		5DB78B29179F25660071BC97 /* MiniPictourMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */; };
 		5DB78B2A179F25660071BC97 /* MiniPictourMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */; };
 /* End PBXBuildFile section */
@@ -110,6 +113,11 @@
 		5D93469317A02DC400A75FAA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5D93469517A045D000A75FAA /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		5D93469617A045D000A75FAA /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		5D93469817A061DA00A75FAA /* TourCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourCreationViewController.h; sourceTree = "<group>"; };
+		5D93469917A061DA00A75FAA /* TourCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourCreationViewController.m; sourceTree = "<group>"; };
+		5D93469A17A061DA00A75FAA /* TourCreationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourCreationViewController.xib; sourceTree = "<group>"; };
+		5D93469D17A0868700A75FAA /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		5D93469E17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		5DB78B26179F25660071BC97 /* MiniPictourMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniPictourMapViewController.h; sourceTree = "<group>"; };
 		5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniPictourMapViewController.m; sourceTree = "<group>"; };
 		5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPictourMapViewController.xib; sourceTree = "<group>"; };
@@ -209,6 +217,9 @@
 				5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */,
 				5D93469517A045D000A75FAA /* Annotation.h */,
 				5D93469617A045D000A75FAA /* Annotation.m */,
+				5D93469817A061DA00A75FAA /* TourCreationViewController.h */,
+				5D93469917A061DA00A75FAA /* TourCreationViewController.m */,
+				5D93469A17A061DA00A75FAA /* TourCreationViewController.xib */,
 				5D9043B6179DA7C700445280 /* Supporting Files */,
 			);
 			path = MiniPictour;
@@ -217,6 +228,8 @@
 		5D9043B6179DA7C700445280 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D93469D17A0868700A75FAA /* TPKeyboardAvoidingScrollView.h */,
+				5D93469E17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m */,
 				5D9043B7179DA7C700445280 /* MiniPictour-Info.plist */,
 				5D9043B8179DA7C700445280 /* InfoPlist.strings */,
 				5D9043BB179DA7C700445280 /* main.m */,
@@ -313,6 +326,7 @@
 				5D9043D2179DAE8600445280 /* FacebookSDKResources.bundle in Resources */,
 				5D9044BC179DD4F800445280 /* MiniPictourViewController.xib in Resources */,
 				5DB78B2A179F25660071BC97 /* MiniPictourMapViewController.xib in Resources */,
+				5D93469C17A061DA00A75FAA /* TourCreationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +351,8 @@
 				5D9044BB179DD4F800445280 /* MiniPictourViewController.m in Sources */,
 				5DB78B29179F25660071BC97 /* MiniPictourMapViewController.m in Sources */,
 				5D93469717A045D000A75FAA /* Annotation.m in Sources */,
+				5D93469B17A061DA00A75FAA /* TourCreationViewController.m in Sources */,
+				5D93469F17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +436,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MiniPictour/MiniPictour-Prefix.pch";
 				INFOPLIST_FILE = "MiniPictour/MiniPictour-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -435,6 +452,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MiniPictour/MiniPictour-Prefix.pch";
 				INFOPLIST_FILE = "MiniPictour/MiniPictour-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

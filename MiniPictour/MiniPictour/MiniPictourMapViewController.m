@@ -8,8 +8,9 @@
 
 #import "MiniPictourMapViewController.h"
 #import "Annotation.h"
+#import "TourCreationViewController.h"
 @interface MiniPictourMapViewController ()
-@property (retain) IBOutlet MKMapView *mapView;
+@property (assign) IBOutlet MKMapView *mapView;
 @end
 
 @implementation MiniPictourMapViewController
@@ -46,9 +47,49 @@
     // Do any additional setup after loading the view from its nib.
     self.mapView.delegate = self;
     [self.mapView setShowsUserLocation:YES];
+    UIBarButtonItem *addTour = [[UIBarButtonItem alloc]initWithTitle:@"New Tour" style:UIBarButtonItemStylePlain target:self action:@selector(newTour)];
+    self.navigationItem.rightBarButtonItem = addTour;
+    [addTour release];
     //[self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES ];
 }
 
+- (void)newTour
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
+        
+        // Allow editing of image ?
+        imagePicker.allowsEditing = NO;
+        
+        imagePicker.showsCameraControls = NO;
+    } else {
+        imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    imagePicker.delegate = self;
+    [self presentViewController:imagePicker animated:YES completion:NULL];
+    [imagePicker release];
+
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker
+        didFinishPickingImage:(UIImage *)image
+                  editingInfo:(NSDictionary *)editingInfo
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+
+        TourCreationViewController *tourCreator = [[TourCreationViewController alloc] init];        
+        [self.navigationController pushViewController:tourCreator animated:YES];
+        [tourCreator.imageView setImage:image];
+        [tourCreator release];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    NSLog(@"Cancel");
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -56,7 +97,6 @@
 }
 - (void)dealloc
 {
-    [mapView release];
     [userInitialLocation release];
     [super dealloc];
 }
