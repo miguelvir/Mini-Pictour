@@ -7,16 +7,19 @@
 //
 
 #import "MiniPictourViewController.h"
+#import "MiniPictourMapViewController.h"
 @interface MiniPictourViewController ()
 @property (retain) IBOutlet UIActivityIndicatorView *loadingImage;
 @property (retain) IBOutlet UIButton *login_logoutButton;
 @property (retain) IBOutlet UIView *imageView;
 @property (retain) IBOutlet FBProfilePictureView *userImage;
+@property (retain) IBOutlet UIButton *goToMapButton;
 @end
 
 @implementation MiniPictourViewController
 
-@synthesize loadingImage, login_logoutButton, userImage;
+@synthesize loadingImage, login_logoutButton, userImage, imageView, goToMapButton;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,69 +52,78 @@
     
     [self.view addSubview:self.webView];
      */
+    NSLog(@"View Did Load");
     if ([PFUser currentUser] && // Check if a user is cached
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]){
-        [self.loadingImage startAnimating]; // Hide loading indicator
-        [self.login_logoutButton setTitle:@"Log out" forState:UIControlStateNormal];
-        FBRequest *request = [FBRequest requestForMe];
-        
-        // Send request to Facebook
-        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-            if (!error) {
-                // result is a dictionary with the user's Facebook data
-                userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.frame];
-                [self.imageView addSubview:self.userImage];
-                NSDictionary *userData = (NSDictionary *)result;
-                NSString *facebookID = userData[@"id"];
-                self.userImage.profileID = facebookID;
-                [self.loadingImage stopAnimating]; // Hide loading indicator
-            }
-        }];
+        [loadingImage startAnimating];
+        [login_logoutButton setTitle:@"Log out" forState:UIControlStateNormal];
+        userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.frame];
+        [self.imageView addSubview:self.userImage];
+        self.userImage.profileID = [[PFUser currentUser] objectForKey:@"facebookId"];
+        [self.loadingImage stopAnimating];
+        self.goToMapButton.hidden = NO;
 
     }
 }
 
-- (IBAction)loginButtonTouchHandler:(id)sender  {
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"ViewWillAppear");
+}
+- (IBAction)loginButtonTaped:(UIButton *)sender  {
     // The permissions requested from the user
     if ([PFUser currentUser] && // Check if a user is cached
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]){
         [PFUser logOut];
         [self.login_logoutButton setTitle:@"Log in" forState:UIControlStateNormal];
         [self.userImage removeFromSuperview];
-
+        self.goToMapButton.hidden = YES;
         self.userImage = nil;
     } else {
         [self.loadingImage startAnimating];
-        NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+        NSArray *permissionsArray = @[ @"basic_info"];
     
         // Login PFUser using Facebook
         [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         
             if (!user) {
                 if (!error) {
-                    NSLog(@"Uh oh. The user cancelled the Facebook login.");
+                    NSLog(@"The user cancelled the Facebook login.");
                 } else {
-                    NSLog(@"Uh oh. An error occurred: %@", error);
+                    NSLog(@"An error occurred: %@", error);
                 }
             } else {
                 [self.login_logoutButton setTitle:@"Log out" forState:UIControlStateNormal];
-                FBRequest *request = [FBRequest requestForMe];
-            
-                // Send request to Facebook
-                [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                    if (!error) {
-                        // result is a dictionary with the user's Facebook data
-                        [self.userImage removeFromSuperview];
-                        self.userImage = nil;
-                        userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.frame];
-                        [self.imageView addSubview:self.userImage];
-                        NSDictionary *userData = (NSDictionary *)result;
-                        NSString *facebookID = userData[@"id"];
-                        self.userImage.profileID = facebookID;
-                        [self.loadingImage stopAnimating]; // Hide loading indicator
-                        
-                    }
-                }];
+                
+                if (![[PFUser currentUser] objectForKey:@"facebookId"]){
+                    // Ask Facebook for data
+                    FBRequest *request = [FBRequest requestForMe];
+                    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                        if (!error) {
+                            NSDictionary *userData = (NSDictionary *)result;
+                            [user setObject:[NSString stringWithFormat:@"%@",userData[@"id"]] forKey:@"facebookId"];
+                            [user setObject:[NSString stringWithFormat:@"%@",userData[@"username"]] forKey:@"facebookUsername"];
+                            [user setObject:[NSString stringWithFormat:@"%@",userData[@"name"]] forKey:@"name"];
+                            [user saveInBackground];
+                            
+                            
+                            [userImage removeFromSuperview];
+                            self.userImage = nil;
+                            userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.frame];
+                            [self.imageView addSubview:self.userImage];
+                            self.userImage.profileID = userData[@"id"];
+                        }
+                    }];
+                } else {
+                    [userImage removeFromSuperview];
+                    self.userImage = nil;
+                    userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.frame];
+                    [self.imageView addSubview:self.userImage];
+                    self.userImage.profileID = [[PFUser currentUser] objectForKey:@"facebookId"];
+                }
+                [self.loadingImage stopAnimating];
+                self.goToMapButton.hidden = NO;
                 /*
                  NSLog(@"User with facebook logged in!");
                  [self.navigationController pushViewController:[[UserDetailsViewController alloc]    initWithStyle:UITableViewStyleGrouped] animated:YES];
@@ -120,6 +132,14 @@
         }];
     }
 }
+
+- (IBAction)goToMapTapped:(UIButton *)sender
+{
+    MiniPictourMapViewController *mapViewController = [[MiniPictourMapViewController alloc] init];
+    [self.navigationController pushViewController:mapViewController animated:YES];
+    [mapViewController release];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -128,9 +148,10 @@
 
 - (void)dealloc
 {
-    [login_logoutButton release];
-    [loadingImage release];
-    [userImage release];
+    //[login_logoutButton release];
+    //[loadingImage release];
+    //[userImage release];
+    //[imageView release];
     [super dealloc];
 }
 /*

@@ -46,6 +46,10 @@
 		5D9044CE179DD89100445280 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9044C5179DD89100445280 /* QuartzCore.framework */; };
 		5D9044CF179DD89100445280 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9044C6179DD89100445280 /* StoreKit.framework */; };
 		5D9044D0179DD89100445280 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9044C7179DD89100445280 /* SystemConfiguration.framework */; };
+		5D93469417A02DC400A75FAA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D93469317A02DC400A75FAA /* MapKit.framework */; };
+		5D93469717A045D000A75FAA /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93469617A045D000A75FAA /* Annotation.m */; };
+		5DB78B29179F25660071BC97 /* MiniPictourMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */; };
+		5DB78B2A179F25660071BC97 /* MiniPictourMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +107,12 @@
 		5D9044C5179DD89100445280 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5D9044C6179DD89100445280 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5D9044C7179DD89100445280 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5D93469317A02DC400A75FAA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5D93469517A045D000A75FAA /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		5D93469617A045D000A75FAA /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		5DB78B26179F25660071BC97 /* MiniPictourMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniPictourMapViewController.h; sourceTree = "<group>"; };
+		5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniPictourMapViewController.m; sourceTree = "<group>"; };
+		5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPictourMapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D93469417A02DC400A75FAA /* MapKit.framework in Frameworks */,
 				5D9044C8179DD89100445280 /* AudioToolbox.framework in Frameworks */,
 				5D9044C9179DD89100445280 /* CFNetwork.framework in Frameworks */,
 				5D9044CA179DD89100445280 /* CoreLocation.framework in Frameworks */,
@@ -158,6 +169,7 @@
 		5D9043AC179DA7C700445280 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D93469317A02DC400A75FAA /* MapKit.framework */,
 				5D9044BF179DD89100445280 /* AudioToolbox.framework */,
 				5D9044C0179DD89100445280 /* CFNetwork.framework */,
 				5D9044C1179DD89100445280 /* CoreLocation.framework */,
@@ -192,6 +204,11 @@
 				5D9044B8179DD4F800445280 /* MiniPictourViewController.h */,
 				5D9044B9179DD4F800445280 /* MiniPictourViewController.m */,
 				5D9044BA179DD4F800445280 /* MiniPictourViewController.xib */,
+				5DB78B26179F25660071BC97 /* MiniPictourMapViewController.h */,
+				5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */,
+				5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */,
+				5D93469517A045D000A75FAA /* Annotation.h */,
+				5D93469617A045D000A75FAA /* Annotation.m */,
 				5D9043B6179DA7C700445280 /* Supporting Files */,
 			);
 			path = MiniPictour;
@@ -295,6 +312,7 @@
 				5D9043C6179DA7C700445280 /* Default-568h@2x.png in Resources */,
 				5D9043D2179DAE8600445280 /* FacebookSDKResources.bundle in Resources */,
 				5D9044BC179DD4F800445280 /* MiniPictourViewController.xib in Resources */,
+				5DB78B2A179F25660071BC97 /* MiniPictourMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +335,8 @@
 				5D9044B6179DBB7200445280 /* AFXMLRequestOperation.m in Sources */,
 				5D9044B7179DBB7200445280 /* UIImageView+AFNetworking.m in Sources */,
 				5D9044BB179DD4F800445280 /* MiniPictourViewController.m in Sources */,
+				5DB78B29179F25660071BC97 /* MiniPictourMapViewController.m in Sources */,
+				5D93469717A045D000A75FAA /* Annotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,9 +50,14 @@
     [PFFacebookUtils initializeFacebook];
     //Application main controller:
     MiniPictourViewController *initialController = [[MiniPictourViewController alloc] init];
-    self.window.rootViewController = initialController;
+    initialController.title = @"Log in";
+    UINavigationController *navCon1 = [[UINavigationController alloc] init];
+    [navCon1 pushViewController:initialController animated:NO];
+    
+    self.window.rootViewController = navCon1;
     
     [initialController release];
+    [navCon1 release];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
