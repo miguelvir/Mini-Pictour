@@ -7,11 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TourCreationViewController : UIViewController
+#import "TPKeyboardAvoidingScrollView.h"
+#import <MapKit/MapKit.h>
+@interface TourCreationViewController : UIViewController <CLLocationManagerDelegate>
 {
-    //IBOutlet UIImageView *imageView;
+    IBOutlet UIImageView *imageView;
+    IBOutlet TPKeyboardAvoidingScrollView *scrollView;
+    IBOutlet UITextField *tourNameField;
+    IBOutlet UITextField *tourDescriptionField;
+    CLLocationManager *locationManager;
+    CLLocation *currentLocation;
 }
 
 @property (assign) IBOutlet UIImageView *imageView;
+@property (assign) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
+@property (retain) CLLocationManager *locationManager;
+@property (retain) CLLocation *currentLocation;
+
 @end
