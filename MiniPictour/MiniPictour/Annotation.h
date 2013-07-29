@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-
+#import <Parse/Parse.h>
 @interface Annotation : NSObject <MKAnnotation>
 {
     
@@ -20,4 +20,7 @@
 - (id)initWithCLLocation:(CLLocationCoordinate2D)coordinate
                 andTitle:(NSString *)title
                 andSubtitle: (NSString *)subtitle;
+- (id)initWithTourPoint:(PFObject *)tourPoint;
+
++ (id)annotationWithTourPoint:(PFObject *)tourPoint;
 @end

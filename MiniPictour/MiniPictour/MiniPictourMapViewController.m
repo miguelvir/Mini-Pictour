@@ -60,13 +60,13 @@
         imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
         
         // Allow editing of image ?
-        imagePicker.allowsEditing = NO;
+        imagePicker.allowsEditing = YES;
         
-        imagePicker.showsCameraControls = NO;
+        imagePicker.showsCameraControls = YES;
     } else {
         imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
     }
-    imagePicker.delegate = self;
+    imagePicker.delegate= self;
     [self presentViewController:imagePicker animated:YES completion:NULL];
     [imagePicker release];
 
@@ -87,7 +87,6 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    NSLog(@"Cancel");
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (void)didReceiveMemoryWarning

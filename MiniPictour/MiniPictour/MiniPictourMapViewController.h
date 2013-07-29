@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-@interface MiniPictourMapViewController : UIViewController <MKMapViewDelegate, UIImagePickerControllerDelegate>
+@interface MiniPictourMapViewController : UIViewController <MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     IBOutlet MKMapView *mapView;
     CLLocation *userInitialLocation;

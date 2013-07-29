@@ -25,4 +25,21 @@
 
 }
 
+- (id)initWithTourPoint:(PFObject *)tourPoint
+{
+    self = [super init];
+    if (self){
+        self.coordinate = CLLocationCoordinate2DMake([[tourPoint objectForKey:@"latitude"] doubleValue], [[tourPoint objectForKey:@"longitude"] doubleValue]);
+        self.title = [tourPoint objectForKey:@"title"];
+        self.subtitle = @"";
+    }
+    return self;
+}
+
++ (id)annotationWithTourPoint:(PFObject *)tourPoint
+{
+    return [[[Annotation alloc] initWithTourPoint:tourPoint] autorelease];
+}
+
+
 @end
