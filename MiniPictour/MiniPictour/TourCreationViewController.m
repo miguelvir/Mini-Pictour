@@ -9,6 +9,7 @@
 #import "TourCreationViewController.h"
 #import "AFJSONRequestOperation.h"
 #import <QuartzCore/QuartzCore.h>
+#import "TourViewController.h"
 @interface TourCreationViewController ()
     @property (assign) IBOutlet UITextField *tourNameField;
     @property (assign) IBOutlet UITextView *tourDescriptionField;
@@ -31,13 +32,13 @@
 {
     NSData *imageData = UIImagePNGRepresentation(self.imageView.image);
     PFFile *imageFile = [PFFile fileWithData:imageData];
-    [imageFile saveInBackground];
+    //[imageFile saveInBackground];
     
     PFObject *newTour = [[PFObject alloc] initWithClassName:@"Tour"];
     [newTour setObject:self.tourNameField.text forKey:@"title"];
     [newTour setObject:self.tourDescriptionField.text forKey:@"description"];
     [newTour setObject:[PFUser currentUser] forKey:@"creator"];
-    [newTour saveInBackground];
+    //[newTour saveInBackground];
     
     PFObject *firstPoint = [[PFObject alloc] initWithClassName:@"TourPoint"];
     [firstPoint setObject:[NSNumber numberWithDouble:self.currentLocation.coordinate.latitude] forKey:@"latitude"];
@@ -45,11 +46,21 @@
     [firstPoint setObject:@"Temp title" forKey:@"title"];
     [firstPoint setObject:imageFile forKey:@"image"];
     [firstPoint setObject:newTour forKey:@"tour"];
-    [firstPoint saveInBackground];
-    
+    [firstPoint saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            TourViewController *tourController = [[TourViewController alloc] initWithTour:newTour];
+            UINavigationController *navcon = self.navigationController;
+            [navcon popViewControllerAnimated:NO];
+            [navcon pushViewController:tourController animated:YES];
+            [tourController release];
+        }
+    }];
+
     [newTour release];
     [firstPoint release];
     
+    
+
     /** Get close venues given a position
      #define FOURSQUARE_CLIENT_ID "I4VMDYZB00XTJMRHJKEUQHDBLRVRXSITCS5PBGVT1LG5FZWL"
      #define FOURSQUARE_CLIENT_SECRET "ZSHJXFEIF3TWKMVXA35PBQSTLRLVDWEGBGZTCA500DKIR4ZS"

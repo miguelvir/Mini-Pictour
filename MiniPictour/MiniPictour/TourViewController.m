@@ -40,6 +40,12 @@
                 for (PFObject *tourPoint in tourPoints) {
                     [mapView addAnnotation:[Annotation annotationWithTourPoint:tourPoint]];
                 }
+                MKCoordinateRegion region;
+                region.center = CLLocationCoordinate2DMake([[[tourPoints objectAtIndex:0] valueForKey:@"latitude"] doubleValue] , [[[tourPoints objectAtIndex:0] valueForKey:@"longitude"] doubleValue]);
+                region.span = MKCoordinateSpanMake(0.01, 0.01);
+         
+                region = [self.mapView regionThatFits:region];
+                [self.mapView setRegion:region animated:NO];
             }
         }];
     }
