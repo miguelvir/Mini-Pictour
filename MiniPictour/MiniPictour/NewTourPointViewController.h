@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MapKit/MapKit.h>
+#import <Parse/Parse.h>
 @interface NewTourPointViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *tableView;
     IBOutlet UIButton *noTitleButton;
-    NSArray *venuesName;
+    NSMutableArray *venuesName;
+    CLLocationCoordinate2D coordinate;
+    UIImage *image;
+    PFObject *tour;
 }
+
+- (id)initWithImage:(UIImage *)image
+       inCoordinate:(CLLocationCoordinate2D)coordinate
+            forTour:(PFObject *)tour;
 @end

@@ -79,7 +79,7 @@
     [self dismissViewControllerAnimated:YES completion:^{
 
         TourCreationViewController *tourCreator = [[TourCreationViewController alloc] init];
-        tourCreator.title = @"Create a Tour";
+        [tourCreator setTitle:@"Create new Tour"];
         [self.navigationController pushViewController:tourCreator animated:YES];
         [tourCreator.imageView setImage:image];
         [tourCreator release];

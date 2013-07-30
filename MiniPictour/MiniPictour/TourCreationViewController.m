@@ -7,18 +7,19 @@
 //
 
 #import "TourCreationViewController.h"
-#import "AFJSONRequestOperation.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TourViewController.h"
 @interface TourCreationViewController ()
     @property (assign) IBOutlet UITextField *tourNameField;
     @property (assign) IBOutlet UITextView *tourDescriptionField;
+    @property (assign) IBOutlet UIButton *saveButton;
+    @property (assign) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @end
 
 @implementation TourCreationViewController
 
 @synthesize imageView, scrollView;
-@synthesize tourNameField, tourDescriptionField;
+@synthesize tourNameField, tourDescriptionField, saveButton, loadingIndicator;
 @synthesize locationManager, currentLocation;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,8 +29,26 @@
     }
     return self;
 }
-- (IBAction)saveTourTapped:(UIButton *)sender
+
+- (void)beginLoading
 {
+    [tourDescriptionField resignFirstResponder];
+    [tourDescriptionField setEditable:NO];
+    
+    [tourNameField resignFirstResponder];
+    [tourNameField setEnabled:NO];
+    
+    [saveButton setEnabled:NO];
+    
+    [scrollView setAlpha:0.3];
+    
+    [loadingIndicator startAnimating];
+    [self.view bringSubviewToFront:loadingIndicator];
+}
+- (IBAction)saveTourTapped:(UIButton *)sender
+{    
+    [self beginLoading];
+    
     NSData *imageData = UIImagePNGRepresentation(self.imageView.image);
     PFFile *imageFile = [PFFile fileWithData:imageData];
     //[imageFile saveInBackground];
@@ -55,32 +74,14 @@
             [tourController release];
         }
     }];
-
+   
     [newTour release];
     [firstPoint release];
     
     
 
     /** Get close venues given a position
-     #define FOURSQUARE_CLIENT_ID "I4VMDYZB00XTJMRHJKEUQHDBLRVRXSITCS5PBGVT1LG5FZWL"
-     #define FOURSQUARE_CLIENT_SECRET "ZSHJXFEIF3TWKMVXA35PBQSTLRLVDWEGBGZTCA500DKIR4ZS"
-
-    NSURL *placeNamesURl = [NSURL URLWithString:[@"https://api.foursquare.com/v2/venues/explore?" stringByAppendingFormat:@"ll=%f,%f&radius=%d&time=any&day=any&client_id=%s&client_secret=%s",self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude,200,FOURSQUARE_CLIENT_ID,FOURSQUARE_CLIENT_SECRET]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:placeNamesURl];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-            NSDictionary *data =[[[[JSON valueForKey:@"response" ] valueForKey:@"groups" ]
-                                lastObject] valueForKey:@"items"];
-            NSMutableArray *venues = [NSMutableArray array];
-            for (NSDictionary *venueData in data) {
-                [venues addObject:[[venueData objectForKey:@"venue"] objectForKey:@"name"]];
-            }
-            NSLog(@"Venues: %@",venues);
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-            NSLog(@"%@",error);
-        }];
-    
-    [operation start];
+     
     **/
     
 }

@@ -10,11 +10,12 @@
 #import <MapKit/MapKit.h>
 #import <Parse/Parse.h>
 
-@interface TourViewController : UIViewController <MKMapViewDelegate>
+@interface TourViewController : UIViewController <MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     PFObject *tour;
     NSArray *tourPoints;
     IBOutlet MKMapView *mapView;
+    CLLocationCoordinate2D coordinate;
 }
 
 - (id)initWithTour:(PFObject *)tour;
