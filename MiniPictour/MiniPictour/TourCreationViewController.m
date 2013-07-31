@@ -57,6 +57,7 @@
     [newTour setObject:self.tourNameField.text forKey:@"title"];
     [newTour setObject:self.tourDescriptionField.text forKey:@"description"];
     [newTour setObject:[PFUser currentUser] forKey:@"creator"];
+    [newTour setObject:imageFile forKey:@"image"];
     //[newTour saveInBackground];
     
     PFObject *firstPoint = [[PFObject alloc] initWithClassName:@"TourPoint"];

@@ -41,5 +41,11 @@
     return [[[Annotation alloc] initWithTourPoint:tourPoint] autorelease];
 }
 
+- (void)dealloc
+{
+    [title release];
+    [subtitle release];
+    [super dealloc];
+}
 
 @end

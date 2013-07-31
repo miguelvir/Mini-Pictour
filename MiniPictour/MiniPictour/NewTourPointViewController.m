@@ -170,6 +170,7 @@
     [tempVenue release];
     [venuesName release];
     [tour release];
+    [image release];
     [super dealloc];
 }
 

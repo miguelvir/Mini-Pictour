@@ -42,9 +42,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.mapView.delegate = self;
-    [self.mapView setShowsUserLocation:YES];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Add Point" style:UIBarButtonItemStyleBordered target:self action:@selector(newPoint)] autorelease];
+    
+    if ([[[PFUser currentUser] valueForKey:@"objectId"] isEqual:[[tour objectForKey:@"creator"] valueForKey:@"objectId"]]){
+        self.mapView.delegate = self;
+        [self.mapView setShowsUserLocation:YES];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Add Point" style:UIBarButtonItemStyleBordered target:self action:@selector(newPoint)] autorelease];
+    }else{
+        NSLog(@"Current User: %@ \n Tour creator: %@ ",[[PFUser currentUser] valueForKey:@"objectId"], [[tour objectForKey:@"creator"] valueForKey:@"objectId"]);
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -8,6 +8,7 @@
 
 #import "MiniPictourViewController.h"
 #import "MiniPictourMapViewController.h"
+#import "UserToursViewController.h"
 @interface MiniPictourViewController ()
 @property (assign) IBOutlet UIActivityIndicatorView *loadingImage;
 @property (assign) IBOutlet UIButton *login_logoutButton;
@@ -129,9 +130,13 @@
 
 - (IBAction)goToMapTapped:(UIButton *)sender
 {
-    MiniPictourMapViewController *mapViewController = [[MiniPictourMapViewController alloc] init];
+    
+    /*MiniPictourMapViewController *mapViewController = [[MiniPictourMapViewController alloc] init];
     [self.navigationController pushViewController:mapViewController animated:YES];
-    [mapViewController release];
+    [mapViewController release];*/
+    UserToursViewController *toursViewController = [[UserToursViewController alloc] initWithClassName:@"Tour" forUser:[PFUser currentUser]];
+    [self.navigationController pushViewController:toursViewController animated:YES];
+    [toursViewController release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -146,6 +151,7 @@
     //[loadingImage release];
     //[userImage release];
     //[imageView release];
+    [userImage release];
     [super dealloc];
 }
 /*

@@ -55,8 +55,10 @@
 		5D93469B17A061DA00A75FAA /* TourCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93469917A061DA00A75FAA /* TourCreationViewController.m */; };
 		5D93469C17A061DA00A75FAA /* TourCreationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D93469A17A061DA00A75FAA /* TourCreationViewController.xib */; };
 		5D93469F17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93469E17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m */; };
+		5D99A3D617A964EB004A51F0 /* TourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D99A3D517A964EB004A51F0 /* TourCell.m */; };
 		5DB78B29179F25660071BC97 /* MiniPictourMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */; };
 		5DB78B2A179F25660071BC97 /* MiniPictourMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */; };
+		5DFBEA3117A872F50016D6AD /* UserToursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFBEA2F17A872F40016D6AD /* UserToursViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,9 +130,13 @@
 		5D93469A17A061DA00A75FAA /* TourCreationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourCreationViewController.xib; sourceTree = "<group>"; };
 		5D93469D17A0868700A75FAA /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		5D93469E17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		5D99A3D417A964EB004A51F0 /* TourCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourCell.h; sourceTree = "<group>"; };
+		5D99A3D517A964EB004A51F0 /* TourCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourCell.m; sourceTree = "<group>"; };
 		5DB78B26179F25660071BC97 /* MiniPictourMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniPictourMapViewController.h; sourceTree = "<group>"; };
 		5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniPictourMapViewController.m; sourceTree = "<group>"; };
 		5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPictourMapViewController.xib; sourceTree = "<group>"; };
+		5DFBEA2E17A872F40016D6AD /* UserToursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserToursViewController.h; sourceTree = "<group>"; };
+		5DFBEA2F17A872F40016D6AD /* UserToursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserToursViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +242,10 @@
 				5D93366617A71AA700C86F21 /* NewTourPointViewController.h */,
 				5D93366717A71AA700C86F21 /* NewTourPointViewController.m */,
 				5D93366817A71AA700C86F21 /* NewTourPointViewController.xib */,
+				5DFBEA2E17A872F40016D6AD /* UserToursViewController.h */,
+				5DFBEA2F17A872F40016D6AD /* UserToursViewController.m */,
+				5D99A3D417A964EB004A51F0 /* TourCell.h */,
+				5D99A3D517A964EB004A51F0 /* TourCell.m */,
 				5D9043B6179DA7C700445280 /* Supporting Files */,
 			);
 			path = MiniPictour;
@@ -373,6 +383,8 @@
 				5D93469F17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m in Sources */,
 				5D93366417A6DDD700C86F21 /* TourViewController.m in Sources */,
 				5D93366917A71AA700C86F21 /* NewTourPointViewController.m in Sources */,
+				5DFBEA3117A872F50016D6AD /* UserToursViewController.m in Sources */,
+				5D99A3D617A964EB004A51F0 /* TourCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
