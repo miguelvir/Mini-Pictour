@@ -55,7 +55,7 @@
     
     PFObject *newTour = [[PFObject alloc] initWithClassName:@"Tour"];
     [newTour setObject:self.tourNameField.text forKey:@"title"];
-    [newTour setObject:self.tourDescriptionField.text forKey:@"description"];
+    [newTour setObject:self.tourDescriptionField.text forKey:@"details"];
     [newTour setObject:[PFUser currentUser] forKey:@"creator"];
     [newTour setObject:imageFile forKey:@"image"];
     //[newTour saveInBackground];

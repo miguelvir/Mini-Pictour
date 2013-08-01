@@ -9,7 +9,7 @@
 #import "UserToursViewController.h"
 #import "TourCell.h"
 #import "TourCreationViewController.h"
-#import "TourViewController.h"
+#import "TourDescriptionViewController.h"
 
 @interface UserToursViewController ()
 @end
@@ -50,14 +50,6 @@
     if(!cell){
         cell = [[[TourCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier andTour:object ] autorelease];
     }
-    //    cell.imageView.image =  [UIImage imageWithData:[[object objectForKey:@"image"] getData] ];
-    [[object objectForKey:@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        cell.imageView.image = [UIImage imageWithData:data];
-        [cell.imageView setNeedsDisplay];
-        [cell setNeedsDisplay];
-    }];
-    
-
     return cell;
 }
 
@@ -77,7 +69,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TourViewController *tourViewController = [[TourViewController alloc] initWithTour:[self objectAtIndexPath:indexPath]];
+    TourDescriptionViewController *tourViewController = [[TourDescriptionViewController alloc] initWithTour:[self objectAtIndexPath:indexPath]];
     [self.navigationController pushViewController:tourViewController animated:YES];
     [tourViewController release];
 }

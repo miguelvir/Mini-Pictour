@@ -8,7 +8,7 @@
 
 #import "Annotation.h"
 @implementation Annotation
-@synthesize coordinate, title, subtitle;
+@synthesize coordinate, title, subtitle, tourPoint;
 
 
 - (id)initWithCLLocation:(CLLocationCoordinate2D)initialCoordinate
@@ -29,6 +29,7 @@
 {
     self = [super init];
     if (self){
+        self.tourPoint = tourPoint;
         self.coordinate = CLLocationCoordinate2DMake([[tourPoint objectForKey:@"latitude"] doubleValue], [[tourPoint objectForKey:@"longitude"] doubleValue]);
         self.title = [tourPoint objectForKey:@"title"];
         self.subtitle = @"";
@@ -45,6 +46,7 @@
 {
     [title release];
     [subtitle release];
+    [tourPoint release];
     [super dealloc];
 }
 

@@ -27,8 +27,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.tour = newTour;
-        
-
+        [[tour objectForKey:@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.imageView.image = [UIImage imageWithData:data];
+            });
+        }];     
         self.textLabel.text = [tour valueForKey:@"title"];
         [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }

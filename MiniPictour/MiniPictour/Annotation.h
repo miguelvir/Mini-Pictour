@@ -11,11 +11,12 @@
 #import <Parse/Parse.h>
 @interface Annotation : NSObject <MKAnnotation>
 {
-    
+    PFObject *tourPoint;
 }
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
+@property (retain) PFObject *tourPoint;
 
 - (id)initWithCLLocation:(CLLocationCoordinate2D)coordinate
                 andTitle:(NSString *)title
