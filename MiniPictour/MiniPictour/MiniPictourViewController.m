@@ -9,6 +9,7 @@
 #import "MiniPictourViewController.h"
 #import "MiniPictourMapViewController.h"
 #import "UserToursViewController.h"
+
 @interface MiniPictourViewController ()
 @property (assign) IBOutlet UIActivityIndicatorView *loadingImage;
 @property (assign) IBOutlet UIButton *login_logoutButton;
@@ -30,36 +31,17 @@
     return self;
 }
 
-#define CLIENT_ID       @"I4VMDYZB00XTJMRHJKEUQHDBLRVRXSITCS5PBGVT1LG5FZWL"
-#define CLIENT_SECRET   @"ZSHJXFEIF3TWKMVXA35PBQSTLRLVDWEGBGZTCA500DKIR4ZS"
-#define CALLBACK_URL    @"http://pictour.us/"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    /* Test for sending an object to Parse
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    [testObject setObject:@"bar" forKey:@"foo"];
-    [testObject save];
-     */
-    
-    /* Test for foursquare authentication
-    self.webView = [[[UIWebView alloc] initWithFrame:self.view.bounds] autorelease];
-    self.webView.delegate = self;
-    NSString *authenticateURLString = [NSString stringWithFormat:@"https://foursquare.com/oauth2/authenticate?client_id=%@&response_type=token&redirect_uri=%@", CLIENT_ID, CALLBACK_URL];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authenticateURLString]];
-    [self.webView loadRequest:request];
-    
-    [self.view addSubview:self.webView];
-     */
-    NSLog(@"View Did Load");
+    userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.frame];
+    [self.imageView addSubview:self.userImage];
+    self.userImage.profileID = nil;
     if ([PFUser currentUser] && // Check if a user is cached
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]){
         [loadingImage startAnimating];
         [login_logoutButton setTitle:@"Log out" forState:UIControlStateNormal];
-        userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.frame];
-        [self.imageView addSubview:self.userImage];
         self.userImage.profileID = [[PFUser currentUser] objectForKey:@"facebookId"];
         [self.loadingImage stopAnimating];
         self.goToMapButton.hidden = NO;
@@ -72,9 +54,9 @@
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]){
         [PFUser logOut];
         [self.login_logoutButton setTitle:@"Log in" forState:UIControlStateNormal];
-        [self.userImage removeFromSuperview];
         self.goToMapButton.hidden = YES;
-        self.userImage = nil;
+        self.userImage.profileID = nil;
+        [self.tabBarController setViewControllers:@[self] animated:YES];
     } else {
         [self.loadingImage startAnimating];
         NSArray *permissionsArray = @[ @"basic_info"];
@@ -100,34 +82,37 @@
                             [user setObject:[NSString stringWithFormat:@"%@",userData[@"id"]] forKey:@"facebookId"];
                             [user setObject:[NSString stringWithFormat:@"%@",userData[@"username"]] forKey:@"facebookUsername"];
                             [user setObject:[NSString stringWithFormat:@"%@",userData[@"name"]] forKey:@"name"];
-                            [user saveInBackground];
+                            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                if(succeeded){
+                                    [self addTab];
+                                }
+                            }];
                             
-                            
-                            [userImage removeFromSuperview];
-                            self.userImage = nil;
-                            userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.frame];
-                            [self.imageView addSubview:self.userImage];
                             self.userImage.profileID = userData[@"id"];
                         }
                     }];
                 } else {
-                    [userImage removeFromSuperview];
-                    self.userImage = nil;
-                    userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.frame];
-                    [self.imageView addSubview:self.userImage];
                     self.userImage.profileID = [[PFUser currentUser] objectForKey:@"facebookId"];
+                    [self addTab];
                 }
+                
                 [self.loadingImage stopAnimating];
                 self.goToMapButton.hidden = NO;
-                /*
-                 NSLog(@"User with facebook logged in!");
-                 [self.navigationController pushViewController:[[UserDetailsViewController alloc]    initWithStyle:UITableViewStyleGrouped] animated:YES];
-                */
             }
         }];
     }
 }
 
+- (void)addTab
+{
+    UserToursViewController *userTours = [[UserToursViewController alloc] initWithClassName:@"Tour" forUser:[PFUser currentUser]];
+    userTours.title = @"My Tours";
+    UINavigationController *navTours = [[UINavigationController alloc]initWithRootViewController:userTours];
+    [self.tabBarController setViewControllers:@[self,navTours] animated:YES];
+    [self.tabBarController setSelectedIndex:1];
+    [userTours release];
+    [navTours release];
+}
 - (IBAction)goToMapTapped:(UIButton *)sender
 {
     
@@ -147,10 +132,7 @@
 
 - (void)dealloc
 {
-    //[login_logoutButton release];
-    //[loadingImage release];
-    //[userImage release];
-    //[imageView release];
+   
     [userImage release];
     [super dealloc];
 }

@@ -9,6 +9,7 @@
 #import "MiniPictourAppDelegate.h"
 #import <Parse/Parse.h>
 #import "MiniPictourViewController.h"
+#import "UserToursViewController.h";
 @implementation MiniPictourAppDelegate
 
 - (void)dealloc
@@ -50,14 +51,19 @@
     [PFFacebookUtils initializeFacebook];
     //Application main controller:
     MiniPictourViewController *initialController = [[MiniPictourViewController alloc] init];
-    initialController.title = @"Log in";
-    UINavigationController *navCon1 = [[UINavigationController alloc] init];
-    [navCon1 pushViewController:initialController animated:NO];
-    
-    self.window.rootViewController = navCon1;
+    initialController.title = @"User account";
+        UITabBarController  *mainController = [[UITabBarController alloc] init];
+    [mainController addChildViewController:initialController];
+    if ([PFUser currentUser]){
+        UserToursViewController *userTours = [[UserToursViewController alloc] initWithClassName:@"Tour" forUser:[PFUser currentUser]];
+        userTours.title = @"My Tours";
+        [mainController addChildViewController:[[[UINavigationController alloc]initWithRootViewController:userTours ] autorelease]];
+        [userTours release];
+    }
+    self.window.rootViewController = mainController;
     
     [initialController release];
-    [navCon1 release];
+    [mainController release];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
