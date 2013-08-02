@@ -48,6 +48,8 @@
     UIBarButtonItem *viewTourInMap = [[UIBarButtonItem alloc]initWithTitle:@"View in Map" style:UIBarButtonItemStylePlain target:self action:@selector(viewInMap)];
     self.navigationItem.rightBarButtonItem = viewTourInMap;
     [viewTourInMap release];
+    
+    self.title = [tour valueForKey:@"title"];
 
 }
 - (void)viewInMap

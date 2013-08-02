@@ -43,7 +43,7 @@
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIActivityIndicatorView" id="475326016">
 								<reference key="NSNextResponder" ref="815710353"/>
-								<int key="NSvFlags">-2147483392</int>
+								<int key="NSvFlags">-2147483387</int>
 								<string key="NSFrame">{{150, 264}, {20, 20}}</string>
 								<reference key="NSSuperview" ref="815710353"/>
 								<reference key="NSWindow"/>
@@ -55,7 +55,7 @@
 							</object>
 							<object class="IBUIButton" id="464727661">
 								<reference key="NSNextResponder" ref="815710353"/>
-								<int key="NSvFlags">288</int>
+								<int key="NSvFlags">293</int>
 								<string key="NSFrame">{{20, 335}, {280, 39}}</string>
 								<reference key="NSSuperview" ref="815710353"/>
 								<reference key="NSWindow"/>
@@ -90,12 +90,11 @@
 							</object>
 							<object class="IBUIView" id="79058758">
 								<reference key="NSNextResponder" ref="815710353"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">293</int>
 								<array class="NSMutableArray" key="NSSubviews"/>
 								<string key="NSFrame">{{20, 20}, {280, 236}}</string>
 								<reference key="NSSuperview" ref="815710353"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -292,16 +291,11 @@
 						</object>
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="goToMapButton">UIButton</string>
 						<string key="imageView">UIView</string>
 						<string key="loadingImage">UIActivityIndicatorView</string>
 						<string key="login_logoutButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="goToMapButton">
-							<string key="name">goToMapButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="imageView">
 							<string key="name">imageView</string>
 							<string key="candidateClassName">UIView</string>

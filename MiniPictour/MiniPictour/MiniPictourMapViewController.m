@@ -34,7 +34,6 @@
     self = [super init];
     if (self) {
         self.user = user;
-        NSLog(@"%@",mapView);
     }
     return self;
 }
@@ -53,7 +52,6 @@
             [query2 whereKey:@"tour" equalTo:tour];
             [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 for (PFObject *tourPoint in objects) {
-                    NSLog(@"Tour Point: %@", tourPoint);
                     Annotation *tempAnnotation = [Annotation annotationWithTourPoint:tourPoint];
                     tempAnnotation.headColor = actualColor;
                     [mapView addAnnotation: tempAnnotation];

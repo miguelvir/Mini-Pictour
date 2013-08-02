@@ -60,6 +60,12 @@
 		5D99A3DB17A9CB57004A51F0 /* TourDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D99A3D917A9CB57004A51F0 /* TourDescriptionViewController.xib */; };
 		5D9C470817AC03A700D1CCE2 /* TourPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C470617AC03A700D1CCE2 /* TourPointViewController.m */; };
 		5D9C470917AC03A700D1CCE2 /* TourPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C470717AC03A700D1CCE2 /* TourPointViewController.xib */; };
+		5D9C471017AC611100D1CCE2 /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C470A17AC611000D1CCE2 /* 07-map-marker.png */; };
+		5D9C471117AC611100D1CCE2 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C470B17AC611100D1CCE2 /* 28-star.png */; };
+		5D9C471217AC611100D1CCE2 /* 72-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C470C17AC611100D1CCE2 /* 72-pin.png */; };
+		5D9C471317AC611100D1CCE2 /* 73-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C470D17AC611100D1CCE2 /* 73-radar.png */; };
+		5D9C471417AC611100D1CCE2 /* 103-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C470E17AC611100D1CCE2 /* 103-map.png */; };
+		5D9C471517AC611100D1CCE2 /* 111-user.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C470F17AC611100D1CCE2 /* 111-user.png */; };
 		5DB78B29179F25660071BC97 /* MiniPictourMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */; };
 		5DB78B2A179F25660071BC97 /* MiniPictourMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */; };
 		5DFBEA3117A872F50016D6AD /* UserToursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFBEA2F17A872F40016D6AD /* UserToursViewController.m */; };
@@ -142,6 +148,12 @@
 		5D9C470517AC03A700D1CCE2 /* TourPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourPointViewController.h; sourceTree = "<group>"; };
 		5D9C470617AC03A700D1CCE2 /* TourPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourPointViewController.m; sourceTree = "<group>"; };
 		5D9C470717AC03A700D1CCE2 /* TourPointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourPointViewController.xib; sourceTree = "<group>"; };
+		5D9C470A17AC611000D1CCE2 /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker.png"; sourceTree = "<group>"; };
+		5D9C470B17AC611100D1CCE2 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
+		5D9C470C17AC611100D1CCE2 /* 72-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "72-pin.png"; sourceTree = "<group>"; };
+		5D9C470D17AC611100D1CCE2 /* 73-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "73-radar.png"; sourceTree = "<group>"; };
+		5D9C470E17AC611100D1CCE2 /* 103-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "103-map.png"; sourceTree = "<group>"; };
+		5D9C470F17AC611100D1CCE2 /* 111-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "111-user.png"; sourceTree = "<group>"; };
 		5DB78B26179F25660071BC97 /* MiniPictourMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniPictourMapViewController.h; sourceTree = "<group>"; };
 		5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniPictourMapViewController.m; sourceTree = "<group>"; };
 		5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPictourMapViewController.xib; sourceTree = "<group>"; };
@@ -272,6 +284,12 @@
 			children = (
 				5D93469D17A0868700A75FAA /* TPKeyboardAvoidingScrollView.h */,
 				5D93469E17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m */,
+				5D9C470A17AC611000D1CCE2 /* 07-map-marker.png */,
+				5D9C470B17AC611100D1CCE2 /* 28-star.png */,
+				5D9C470C17AC611100D1CCE2 /* 72-pin.png */,
+				5D9C470D17AC611100D1CCE2 /* 73-radar.png */,
+				5D9C470E17AC611100D1CCE2 /* 103-map.png */,
+				5D9C470F17AC611100D1CCE2 /* 111-user.png */,
 				5D9043B7179DA7C700445280 /* MiniPictour-Info.plist */,
 				5D9043B8179DA7C700445280 /* InfoPlist.strings */,
 				5D9043BB179DA7C700445280 /* main.m */,
@@ -373,6 +391,12 @@
 				5D93366A17A71AA700C86F21 /* NewTourPointViewController.xib in Resources */,
 				5D99A3DB17A9CB57004A51F0 /* TourDescriptionViewController.xib in Resources */,
 				5D9C470917AC03A700D1CCE2 /* TourPointViewController.xib in Resources */,
+				5D9C471017AC611100D1CCE2 /* 07-map-marker.png in Resources */,
+				5D9C471117AC611100D1CCE2 /* 28-star.png in Resources */,
+				5D9C471217AC611100D1CCE2 /* 72-pin.png in Resources */,
+				5D9C471317AC611100D1CCE2 /* 73-radar.png in Resources */,
+				5D9C471417AC611100D1CCE2 /* 103-map.png in Resources */,
+				5D9C471517AC611100D1CCE2 /* 111-user.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

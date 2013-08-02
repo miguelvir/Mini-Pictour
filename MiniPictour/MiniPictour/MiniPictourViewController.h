@@ -13,7 +13,6 @@
 {
     IBOutlet UIActivityIndicatorView *loadingImage;
     IBOutlet UIButton *login_logoutButton;
-    IBOutlet UIButton *goToMapButton;
     FBProfilePictureView *userImage;
 }
 

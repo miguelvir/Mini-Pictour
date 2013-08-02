@@ -55,6 +55,8 @@
     [tourPointDescription.layer setBorderWidth:4.0];
     [tourPointDescription.layer setBackgroundColor:[UIColor clearColor].CGColor];
     [tourPointDescription.layer setCornerRadius:5.0];
+    
+    self.title = [tourPoint valueForKey:@"title"];
 }
 
 - (void)editTourPoint

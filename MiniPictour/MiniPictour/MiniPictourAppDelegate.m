@@ -53,16 +53,21 @@
     //Application main controller:
     MiniPictourViewController *userViewController = [[MiniPictourViewController alloc] init];
     userViewController.title = @"User account";
+    userViewController.tabBarItem.image = [UIImage imageNamed:@"111-user.png"];
         UITabBarController  *mainController = [[UITabBarController alloc] init];
     [mainController setViewControllers:@[userViewController]];
     if ([PFUser currentUser]){
         //User Tours:
         UserToursViewController *userTours = [[UserToursViewController alloc] initWithClassName:@"Tour" forUser:[PFUser currentUser]];
         userTours.title = @"My Tours";
+        NSLog(@"%@",[UIImage imageNamed:@"timer.png"]);
+        userTours.tabBarItem.image = [UIImage imageNamed:@"72-pin.png"];
         
         //General Map
         MiniPictourMapViewController *map = [[MiniPictourMapViewController alloc] initWithUser:[PFUser  currentUser]];
         map.title = @"Map";
+        map.tabBarItem.image = [UIImage imageNamed:@"103-map.png"];
+        
         [mainController setViewControllers:
             @[[[[UINavigationController alloc]initWithRootViewController:userTours ] autorelease] ,
               [[[UINavigationController alloc]initWithRootViewController:map ] autorelease] ,
