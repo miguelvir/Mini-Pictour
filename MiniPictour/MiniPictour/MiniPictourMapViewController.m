@@ -9,13 +9,17 @@
 #import "MiniPictourMapViewController.h"
 #import "Annotation.h"
 #import "TourCreationViewController.h"
+#import "TourPointViewController.h"
 @interface MiniPictourMapViewController ()
 @property (assign) IBOutlet MKMapView *mapView;
+@property (retain) PFUser *user;
 @end
 
 @implementation MiniPictourMapViewController
 @synthesize userInitialLocation;
 @synthesize mapView;
+@synthesize user;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,6 +29,74 @@
     return self;
 }
 
+- (id)initWithUser:(PFUser *)user
+{
+    self = [super init];
+    if (self) {
+        self.user = user;
+        NSLog(@"%@",mapView);
+    }
+    return self;
+}
+
+- (void)loadTours
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Tour"];
+    [query whereKey:@"creator" equalTo:user];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        int count = 0;
+        int actualColor = 0;
+        for (PFObject *tour in objects) {
+            actualColor = (count % 3);
+            count++;
+            PFQuery *query2 = [PFQuery queryWithClassName:@"TourPoint"];
+            [query2 whereKey:@"tour" equalTo:tour];
+            [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                for (PFObject *tourPoint in objects) {
+                    NSLog(@"Tour Point: %@", tourPoint);
+                    Annotation *tempAnnotation = [Annotation annotationWithTourPoint:tourPoint];
+                    tempAnnotation.headColor = actualColor;
+                    [mapView addAnnotation: tempAnnotation];
+                }
+            }];
+        }
+    }];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    static NSString *identifier = @"TourAnnotationIdentifier";
+    
+    if([annotation isKindOfClass:[Annotation class]]){
+        MKPinAnnotationView *aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        
+        Annotation *myAnnotation = (Annotation *)annotation;        
+        [[myAnnotation.tourPoint objectForKey:@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            UIImageView *tempView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+            tempView.image = [UIImage imageWithData:data];
+            aView.leftCalloutAccessoryView = tempView;
+            [tempView release];
+        }];
+        
+        aView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        aView.annotation = annotation;
+        aView.canShowCallout = YES;
+        aView.pinColor = myAnnotation.headColor;
+        return [aView autorelease];
+        
+    } else {
+        return nil;
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    Annotation *myAnnotation = view.annotation;
+    TourPointViewController *tourPoint = [[TourPointViewController alloc] initWithTourPoint:myAnnotation.tourPoint];
+    [self.navigationController pushViewController:tourPoint animated:YES];
+    [tourPoint release];
+}
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     if (!userInitialLocation)
@@ -37,7 +109,7 @@
         
         region = [self.mapView regionThatFits:region];
         [self.mapView setRegion:region animated:YES];
-        [self.mapView addAnnotation:[[[Annotation alloc] initWithCLLocation:userInitialLocation.coordinate andTitle:@"Initial Location" andSubtitle:@"User initial location"]autorelease]];
+        //[self.mapView addAnnotation:[[[Annotation alloc] initWithCLLocation:userInitialLocation.coordinate andTitle:@"Initial Location" andSubtitle:@"User initial location"]autorelease]];
 
     }
 }
@@ -50,6 +122,8 @@
     UIBarButtonItem *addTour = [[UIBarButtonItem alloc]initWithTitle:@"New Tour" style:UIBarButtonItemStylePlain target:self action:@selector(newTour)];
     self.navigationItem.rightBarButtonItem = addTour;
     [addTour release];
+    [self loadTours];
+
     //[self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES ];
 }
 
@@ -97,6 +171,7 @@
 }
 - (void)dealloc
 {
+    [user release];
     [userInitialLocation release];
     [super dealloc];
 }

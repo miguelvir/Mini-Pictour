@@ -9,6 +9,8 @@
 #import "TourViewController.h"
 #import "Annotation.h"
 #import "NewTourPointViewController.h"
+#import "TourPointViewController.h"
+
 @interface TourViewController ()
     @property (retain) PFObject *tour;
     @property (retain) NSArray *tourPoints;
@@ -77,6 +79,41 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     self.coordinate = userLocation.coordinate;
+}
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    static NSString *identifier = @"TourAnnotationIdentifier";
+
+    if([annotation isKindOfClass:[Annotation class]]){
+        MKPinAnnotationView *aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        
+        Annotation *myAnnotation = (Annotation *)annotation;
+            //aView.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:[[myAnnotation.tourPoint objectForKey:@"image"] getData]]];
+            
+        [[myAnnotation.tourPoint objectForKey:@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            UIImageView *tempView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+            tempView.image = [UIImage imageWithData:data];
+            aView.leftCalloutAccessoryView = tempView;
+            [tempView release];
+        }];
+        
+        aView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        aView.annotation = annotation;
+        aView.canShowCallout = YES;
+        return [aView autorelease];
+
+    } else {
+        return nil;
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    Annotation *myAnnotation = view.annotation;
+    TourPointViewController *tourPoint = [[TourPointViewController alloc] initWithTourPoint:myAnnotation.tourPoint];
+    [self.navigationController pushViewController:tourPoint animated:YES];
+    [tourPoint release];
 }
 
 - (void)newPoint

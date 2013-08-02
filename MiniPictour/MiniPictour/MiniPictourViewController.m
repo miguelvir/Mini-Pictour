@@ -15,12 +15,11 @@
 @property (assign) IBOutlet UIButton *login_logoutButton;
 @property (assign) IBOutlet UIView *imageView;
 @property (retain) FBProfilePictureView *userImage;
-@property (assign) IBOutlet UIButton *goToMapButton;
 @end
 
 @implementation MiniPictourViewController
 
-@synthesize loadingImage, login_logoutButton, userImage, imageView, goToMapButton;
+@synthesize loadingImage, login_logoutButton, userImage, imageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,7 +34,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.frame];
+    userImage = [[FBProfilePictureView alloc] initWithFrame:self.imageView.bounds];
     [self.imageView addSubview:self.userImage];
     self.userImage.profileID = nil;
     if ([PFUser currentUser] && // Check if a user is cached
@@ -44,8 +43,6 @@
         [login_logoutButton setTitle:@"Log out" forState:UIControlStateNormal];
         self.userImage.profileID = [[PFUser currentUser] objectForKey:@"facebookId"];
         [self.loadingImage stopAnimating];
-        self.goToMapButton.hidden = NO;
-
     }
 }
 - (IBAction)loginButtonTaped:(UIButton *)sender  {
@@ -54,7 +51,6 @@
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]){
         [PFUser logOut];
         [self.login_logoutButton setTitle:@"Log in" forState:UIControlStateNormal];
-        self.goToMapButton.hidden = YES;
         self.userImage.profileID = nil;
         [self.tabBarController setViewControllers:@[self] animated:YES];
     } else {
@@ -89,6 +85,7 @@
                             }];
                             
                             self.userImage.profileID = userData[@"id"];
+                            [self addTab];
                         }
                     }];
                 } else {
@@ -97,7 +94,6 @@
                 }
                 
                 [self.loadingImage stopAnimating];
-                self.goToMapButton.hidden = NO;
             }
         }];
     }
@@ -108,21 +104,19 @@
     UserToursViewController *userTours = [[UserToursViewController alloc] initWithClassName:@"Tour" forUser:[PFUser currentUser]];
     userTours.title = @"My Tours";
     UINavigationController *navTours = [[UINavigationController alloc]initWithRootViewController:userTours];
-    [self.tabBarController setViewControllers:@[self,navTours] animated:YES];
-    [self.tabBarController setSelectedIndex:1];
+    
+    MiniPictourMapViewController *map = [[MiniPictourMapViewController alloc] initWithUser:[PFUser  currentUser]];
+    map.title = @"Map";
+    UINavigationController *navTours2 = [[UINavigationController alloc]initWithRootViewController:map];
+
+    [self.tabBarController setViewControllers:@[navTours,navTours2, self] animated:YES];
+    [self.tabBarController setSelectedIndex:0];
     [userTours release];
     [navTours release];
+    [map release];
+    [navTours2 release];
 }
-- (IBAction)goToMapTapped:(UIButton *)sender
-{
-    
-    /*MiniPictourMapViewController *mapViewController = [[MiniPictourMapViewController alloc] init];
-    [self.navigationController pushViewController:mapViewController animated:YES];
-    [mapViewController release];*/
-    UserToursViewController *toursViewController = [[UserToursViewController alloc] initWithClassName:@"Tour" forUser:[PFUser currentUser]];
-    [self.navigationController pushViewController:toursViewController animated:YES];
-    [toursViewController release];
-}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -136,25 +130,5 @@
     [userImage release];
     [super dealloc];
 }
-/*
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    if ([request.URL.scheme isEqualToString:@"itms-apps"]) {
-        [[UIApplication sharedApplication] openURL:request.URL];
-        return NO;
-    }
-    return YES;
-}
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSString *URLString = [[self.webView.request URL] absoluteString];
-    NSLog(@"--> %@", URLString);
-    if ([URLString rangeOfString:@"access_token="].location != NSNotFound) {
-        NSString *accessToken = [[URLString componentsSeparatedByString:@"="] lastObject];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:accessToken forKey:@"access_token"];
-        [defaults synchronize];
-        [self dismissModalViewControllerAnimated:YES];
-    }
-}
-*/
 
 @end

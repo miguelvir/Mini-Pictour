@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <Parse/Parse.h>
 
-@interface TourViewController : UIViewController <MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface TourViewController : UIViewController <MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKAnnotation>
 {
     PFObject *tour;
     NSArray *tourPoints;

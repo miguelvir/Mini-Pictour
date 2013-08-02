@@ -32,7 +32,9 @@
         self.tourPoint = tourPoint;
         self.coordinate = CLLocationCoordinate2DMake([[tourPoint objectForKey:@"latitude"] doubleValue], [[tourPoint objectForKey:@"longitude"] doubleValue]);
         self.title = [tourPoint objectForKey:@"title"];
-        self.subtitle = @"";
+        [[self.tourPoint objectForKey:@"tour"] fetchInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            self.subtitle = [object valueForKey:@"title"];
+        }];
     }
     return self;
 }

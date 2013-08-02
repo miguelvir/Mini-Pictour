@@ -39,7 +39,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     tourTitle.text = [tour valueForKey:@"title"];
-    NSLog(@"%@",[tour description]);
     tourDescription.text = [tour valueForKey:@"details"];
     [[tour valueForKey:@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{

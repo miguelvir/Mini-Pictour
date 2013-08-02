@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-@interface MiniPictourMapViewController : UIViewController <MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+#import <Parse/Parse.h>
+@interface MiniPictourMapViewController : UIViewController <MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKAnnotation>
 {
     IBOutlet MKMapView *mapView;
     CLLocation *userInitialLocation;
+    PFUser *user;
 }
 - (void)newTour;
+- (id)initWithUser:(PFUser *)user;
 
 @property (retain) CLLocation *userInitialLocation;
 @end

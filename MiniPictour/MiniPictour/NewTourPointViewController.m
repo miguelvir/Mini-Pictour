@@ -67,7 +67,6 @@
                 [self tableView:tableView commitEditingStyle:UITableViewCellEditingStyleInsert forRowAtIndexPath:[NSIndexPath indexPathForRow:count inSection:0]];
                 count++;
             }
-            NSLog(@"%@",venuesName);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"%@",error);
     }];

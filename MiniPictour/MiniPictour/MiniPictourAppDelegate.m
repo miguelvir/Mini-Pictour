@@ -9,7 +9,8 @@
 #import "MiniPictourAppDelegate.h"
 #import <Parse/Parse.h>
 #import "MiniPictourViewController.h"
-#import "UserToursViewController.h";
+#import "UserToursViewController.h"
+#import "MiniPictourMapViewController.h"
 @implementation MiniPictourAppDelegate
 
 - (void)dealloc
@@ -50,19 +51,28 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFFacebookUtils initializeFacebook];
     //Application main controller:
-    MiniPictourViewController *initialController = [[MiniPictourViewController alloc] init];
-    initialController.title = @"User account";
+    MiniPictourViewController *userViewController = [[MiniPictourViewController alloc] init];
+    userViewController.title = @"User account";
         UITabBarController  *mainController = [[UITabBarController alloc] init];
-    [mainController addChildViewController:initialController];
+    [mainController setViewControllers:@[userViewController]];
     if ([PFUser currentUser]){
+        //User Tours:
         UserToursViewController *userTours = [[UserToursViewController alloc] initWithClassName:@"Tour" forUser:[PFUser currentUser]];
         userTours.title = @"My Tours";
-        [mainController addChildViewController:[[[UINavigationController alloc]initWithRootViewController:userTours ] autorelease]];
+        
+        //General Map
+        MiniPictourMapViewController *map = [[MiniPictourMapViewController alloc] initWithUser:[PFUser  currentUser]];
+        map.title = @"Map";
+        [mainController setViewControllers:
+            @[[[[UINavigationController alloc]initWithRootViewController:userTours ] autorelease] ,
+              [[[UINavigationController alloc]initWithRootViewController:map ] autorelease] ,
+              userViewController]];
         [userTours release];
+        [map release];
     }
     self.window.rootViewController = mainController;
     
-    [initialController release];
+    [userViewController release];
     [mainController release];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

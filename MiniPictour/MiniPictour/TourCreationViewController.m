@@ -46,45 +46,41 @@
     [self.view bringSubviewToFront:loadingIndicator];
 }
 - (IBAction)saveTourTapped:(UIButton *)sender
-{    
-    [self beginLoading];
+{
+    if (tourNameField.text && tourDescriptionField){
+        [self beginLoading];
     
-    NSData *imageData = UIImagePNGRepresentation(self.imageView.image);
-    PFFile *imageFile = [PFFile fileWithData:imageData];
-    //[imageFile saveInBackground];
+        NSData *imageData = UIImagePNGRepresentation(self.imageView.image);
+        PFFile *imageFile = [PFFile fileWithData:imageData];
+        //[imageFile saveInBackground];
     
-    PFObject *newTour = [[PFObject alloc] initWithClassName:@"Tour"];
-    [newTour setObject:self.tourNameField.text forKey:@"title"];
-    [newTour setObject:self.tourDescriptionField.text forKey:@"details"];
-    [newTour setObject:[PFUser currentUser] forKey:@"creator"];
-    [newTour setObject:imageFile forKey:@"image"];
-    //[newTour saveInBackground];
+        PFObject *newTour = [[PFObject alloc] initWithClassName:@"Tour"];
+        [newTour setObject:self.tourNameField.text forKey:@"title"];
+        [newTour setObject:self.tourDescriptionField.text forKey:@"details"];
+        [newTour setObject:[PFUser currentUser] forKey:@"creator"];
+        [newTour setObject:imageFile forKey:@"image"];
+        //[newTour saveInBackground];
     
-    PFObject *firstPoint = [[PFObject alloc] initWithClassName:@"TourPoint"];
-    [firstPoint setObject:[NSNumber numberWithDouble:self.currentLocation.coordinate.latitude] forKey:@"latitude"];
-    [firstPoint setObject:[NSNumber numberWithDouble:self.currentLocation.coordinate.longitude] forKey:@"longitude"];
-    [firstPoint setObject:@"Temp title" forKey:@"title"];
-    [firstPoint setObject:imageFile forKey:@"image"];
-    [firstPoint setObject:newTour forKey:@"tour"];
-    [firstPoint saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            TourViewController *tourController = [[TourViewController alloc] initWithTour:newTour];
-            UINavigationController *navcon = self.navigationController;
-            [navcon popViewControllerAnimated:NO];
-            [navcon pushViewController:tourController animated:YES];
-            [tourController release];
-        }
-    }];
+        PFObject *firstPoint = [[PFObject alloc] initWithClassName:@"TourPoint"];
+        [firstPoint setObject:[NSNumber numberWithDouble:self.currentLocation.coordinate.latitude] forKey:@"latitude"];
+        [firstPoint setObject:[NSNumber numberWithDouble:self.currentLocation.coordinate.longitude] forKey:@"longitude"];
+        [firstPoint setObject:self.tourNameField.text forKey:@"title"];
+        [firstPoint setObject:@"" forKey:@"details"];
+        [firstPoint setObject:imageFile forKey:@"image"];
+        [firstPoint setObject:newTour forKey:@"tour"];
+        [firstPoint saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                TourViewController *tourController = [[TourViewController alloc] initWithTour:newTour];
+                UINavigationController *navcon = self.navigationController;
+                [navcon popViewControllerAnimated:NO];
+                [navcon pushViewController:tourController animated:YES];
+                [tourController release];
+            }
+        }];
    
-    [newTour release];
-    [firstPoint release];
-    
-    
-
-    /** Get close venues given a position
-     
-    **/
-    
+        [newTour release];
+        [firstPoint release];
+    }
 }
 - (void)viewDidLoad
 {

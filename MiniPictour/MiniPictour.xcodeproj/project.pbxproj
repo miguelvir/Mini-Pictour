@@ -58,6 +58,8 @@
 		5D99A3D617A964EB004A51F0 /* TourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D99A3D517A964EB004A51F0 /* TourCell.m */; };
 		5D99A3DA17A9CB57004A51F0 /* TourDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D99A3D817A9CB57004A51F0 /* TourDescriptionViewController.m */; };
 		5D99A3DB17A9CB57004A51F0 /* TourDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D99A3D917A9CB57004A51F0 /* TourDescriptionViewController.xib */; };
+		5D9C470817AC03A700D1CCE2 /* TourPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C470617AC03A700D1CCE2 /* TourPointViewController.m */; };
+		5D9C470917AC03A700D1CCE2 /* TourPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C470717AC03A700D1CCE2 /* TourPointViewController.xib */; };
 		5DB78B29179F25660071BC97 /* MiniPictourMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */; };
 		5DB78B2A179F25660071BC97 /* MiniPictourMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */; };
 		5DFBEA3117A872F50016D6AD /* UserToursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFBEA2F17A872F40016D6AD /* UserToursViewController.m */; };
@@ -137,6 +139,9 @@
 		5D99A3D717A9CB56004A51F0 /* TourDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourDescriptionViewController.h; sourceTree = "<group>"; };
 		5D99A3D817A9CB57004A51F0 /* TourDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourDescriptionViewController.m; sourceTree = "<group>"; };
 		5D99A3D917A9CB57004A51F0 /* TourDescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourDescriptionViewController.xib; sourceTree = "<group>"; };
+		5D9C470517AC03A700D1CCE2 /* TourPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourPointViewController.h; sourceTree = "<group>"; };
+		5D9C470617AC03A700D1CCE2 /* TourPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourPointViewController.m; sourceTree = "<group>"; };
+		5D9C470717AC03A700D1CCE2 /* TourPointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourPointViewController.xib; sourceTree = "<group>"; };
 		5DB78B26179F25660071BC97 /* MiniPictourMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniPictourMapViewController.h; sourceTree = "<group>"; };
 		5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniPictourMapViewController.m; sourceTree = "<group>"; };
 		5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPictourMapViewController.xib; sourceTree = "<group>"; };
@@ -254,6 +259,9 @@
 				5D99A3D717A9CB56004A51F0 /* TourDescriptionViewController.h */,
 				5D99A3D817A9CB57004A51F0 /* TourDescriptionViewController.m */,
 				5D99A3D917A9CB57004A51F0 /* TourDescriptionViewController.xib */,
+				5D9C470517AC03A700D1CCE2 /* TourPointViewController.h */,
+				5D9C470617AC03A700D1CCE2 /* TourPointViewController.m */,
+				5D9C470717AC03A700D1CCE2 /* TourPointViewController.xib */,
 				5D9043B6179DA7C700445280 /* Supporting Files */,
 			);
 			path = MiniPictour;
@@ -364,6 +372,7 @@
 				5D93366517A6DDD700C86F21 /* TourViewController.xib in Resources */,
 				5D93366A17A71AA700C86F21 /* NewTourPointViewController.xib in Resources */,
 				5D99A3DB17A9CB57004A51F0 /* TourDescriptionViewController.xib in Resources */,
+				5D9C470917AC03A700D1CCE2 /* TourPointViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +404,7 @@
 				5DFBEA3117A872F50016D6AD /* UserToursViewController.m in Sources */,
 				5D99A3D617A964EB004A51F0 /* TourCell.m in Sources */,
 				5D99A3DA17A9CB57004A51F0 /* TourDescriptionViewController.m in Sources */,
+				5D9C470817AC03A700D1CCE2 /* TourPointViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
