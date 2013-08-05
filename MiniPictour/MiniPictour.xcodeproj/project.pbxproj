@@ -19,12 +19,12 @@
 		5D9043C6179DA7C700445280 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D9043C5179DA7C700445280 /* Default-568h@2x.png */; };
 		5D9043D0179DAE1400445280 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043CF179DAE1400445280 /* FacebookSDK.framework */; };
 		5D9043D2179DAE8600445280 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D9043D1179DAE8600445280 /* FacebookSDKResources.bundle */; };
-		5D9043D9179DAF2B00445280 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043D3179DAF2B00445280 /* Accounts.framework */; };
-		5D9043DA179DAF2B00445280 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043D4179DAF2B00445280 /* AdSupport.framework */; };
+		5D9043D9179DAF2B00445280 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043D3179DAF2B00445280 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5D9043DA179DAF2B00445280 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043D4179DAF2B00445280 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5D9043DB179DAF2B00445280 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043D5179DAF2B00445280 /* libsqlite3.0.dylib */; };
 		5D9043DC179DAF2B00445280 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043D6179DAF2B00445280 /* libsqlite3.dylib */; };
 		5D9043DD179DAF2B00445280 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043D7179DAF2B00445280 /* Security.framework */; };
-		5D9043DE179DAF2B00445280 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043D8179DAF2B00445280 /* Social.framework */; };
+		5D9043DE179DAF2B00445280 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9043D8179DAF2B00445280 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5D9044AF179DBB7200445280 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D90449D179DBB7200445280 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		5D9044B0179DBB7200445280 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D90449F179DBB7200445280 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		5D9044B1179DBB7200445280 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9044A1179DBB7200445280 /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };

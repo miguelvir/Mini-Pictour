@@ -32,7 +32,7 @@
     if (self) {
         self.tourPoint = aTourPoint;
         [[tourPoint objectForKey:@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:data]];
+            imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:data]];
             [scrollView addSubview: imageView];
             scrollView.minimumZoomScale = 0.25;
             scrollView.maximumZoomScale = 1;

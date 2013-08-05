@@ -8,7 +8,7 @@
 
 #import "Annotation.h"
 @implementation Annotation
-@synthesize coordinate, title, subtitle, tourPoint;
+@synthesize coordinate, title, subtitle, tourPoint, headColor;
 
 
 - (id)initWithCLLocation:(CLLocationCoordinate2D)initialCoordinate

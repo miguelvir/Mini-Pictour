@@ -66,6 +66,8 @@
                 } else {
                     NSLog(@"An error occurred: %@", error);
                 }
+                [self.loadingImage stopAnimating];
+
             } else {
                 [self.login_logoutButton setTitle:@"Log out" forState:UIControlStateNormal];
                 
@@ -103,10 +105,12 @@
 {
     UserToursViewController *userTours = [[UserToursViewController alloc] initWithClassName:@"Tour" forUser:[PFUser currentUser]];
     userTours.title = @"My Tours";
+    userTours.tabBarItem.image = [UIImage imageNamed:@"72-pin.png"];
     UINavigationController *navTours = [[UINavigationController alloc]initWithRootViewController:userTours];
     
     MiniPictourMapViewController *map = [[MiniPictourMapViewController alloc] initWithUser:[PFUser  currentUser]];
     map.title = @"Map";
+    map.tabBarItem.image = [UIImage imageNamed:@"103-map.png"];
     UINavigationController *navTours2 = [[UINavigationController alloc]initWithRootViewController:map];
 
     [self.tabBarController setViewControllers:@[navTours,navTours2, self] animated:YES];

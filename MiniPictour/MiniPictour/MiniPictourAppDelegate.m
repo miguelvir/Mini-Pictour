@@ -40,6 +40,9 @@
     return [PFFacebookUtils handleOpenURL:url];
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [PFFacebookUtils handleOpenURL:url];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -60,7 +63,6 @@
         //User Tours:
         UserToursViewController *userTours = [[UserToursViewController alloc] initWithClassName:@"Tour" forUser:[PFUser currentUser]];
         userTours.title = @"My Tours";
-        NSLog(@"%@",[UIImage imageNamed:@"timer.png"]);
         userTours.tabBarItem.image = [UIImage imageNamed:@"72-pin.png"];
         
         //General Map

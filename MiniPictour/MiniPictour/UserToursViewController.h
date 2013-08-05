@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface UserToursViewController : PFQueryTableViewController <UIImagePickerControllerDelegate, UINavigationBarDelegate >
+@interface UserToursViewController : PFQueryTableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate >
 {
     PFUser *user;
 }
