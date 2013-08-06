@@ -55,6 +55,12 @@
 		5D93469B17A061DA00A75FAA /* TourCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93469917A061DA00A75FAA /* TourCreationViewController.m */; };
 		5D93469C17A061DA00A75FAA /* TourCreationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D93469A17A061DA00A75FAA /* TourCreationViewController.xib */; };
 		5D93469F17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93469E17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m */; };
+		5D93542717B03E5600A21992 /* blue_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D93542317B03E5600A21992 /* blue_pin.png */; };
+		5D93542917B03E5600A21992 /* pink_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D93542517B03E5600A21992 /* pink_pin.png */; };
+		5D93542A17B03E5600A21992 /* yellow_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D93542617B03E5600A21992 /* yellow_pin.png */; };
+		5D93543117B0423600A21992 /* gray_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D93542F17B0423600A21992 /* gray_pin.png */; };
+		5D93543217B0423600A21992 /* orange_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D93543017B0423600A21992 /* orange_pin.png */; };
+		5D93543517B04F9600A21992 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93543417B04F9600A21992 /* MBProgressHUD.m */; };
 		5D99A3D617A964EB004A51F0 /* TourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D99A3D517A964EB004A51F0 /* TourCell.m */; };
 		5D99A3DA17A9CB57004A51F0 /* TourDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D99A3D817A9CB57004A51F0 /* TourDescriptionViewController.m */; };
 		5D99A3DB17A9CB57004A51F0 /* TourDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D99A3D917A9CB57004A51F0 /* TourDescriptionViewController.xib */; };
@@ -140,6 +146,13 @@
 		5D93469A17A061DA00A75FAA /* TourCreationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourCreationViewController.xib; sourceTree = "<group>"; };
 		5D93469D17A0868700A75FAA /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		5D93469E17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		5D93542317B03E5600A21992 /* blue_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_pin.png; sourceTree = "<group>"; };
+		5D93542517B03E5600A21992 /* pink_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_pin.png; sourceTree = "<group>"; };
+		5D93542617B03E5600A21992 /* yellow_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_pin.png; sourceTree = "<group>"; };
+		5D93542F17B0423600A21992 /* gray_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gray_pin.png; path = ../gray_pin.png; sourceTree = "<group>"; };
+		5D93543017B0423600A21992 /* orange_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orange_pin.png; path = ../orange_pin.png; sourceTree = "<group>"; };
+		5D93543317B04F9600A21992 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		5D93543417B04F9600A21992 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		5D99A3D417A964EB004A51F0 /* TourCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourCell.h; sourceTree = "<group>"; };
 		5D99A3D517A964EB004A51F0 /* TourCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourCell.m; sourceTree = "<group>"; };
 		5D99A3D717A9CB56004A51F0 /* TourDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourDescriptionViewController.h; sourceTree = "<group>"; };
@@ -282,6 +295,13 @@
 		5D9043B6179DA7C700445280 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D93543317B04F9600A21992 /* MBProgressHUD.h */,
+				5D93543417B04F9600A21992 /* MBProgressHUD.m */,
+				5D93542F17B0423600A21992 /* gray_pin.png */,
+				5D93543017B0423600A21992 /* orange_pin.png */,
+				5D93542317B03E5600A21992 /* blue_pin.png */,
+				5D93542517B03E5600A21992 /* pink_pin.png */,
+				5D93542617B03E5600A21992 /* yellow_pin.png */,
 				5D93469D17A0868700A75FAA /* TPKeyboardAvoidingScrollView.h */,
 				5D93469E17A0868700A75FAA /* TPKeyboardAvoidingScrollView.m */,
 				5D9C470A17AC611000D1CCE2 /* 07-map-marker.png */,
@@ -397,6 +417,11 @@
 				5D9C471317AC611100D1CCE2 /* 73-radar.png in Resources */,
 				5D9C471417AC611100D1CCE2 /* 103-map.png in Resources */,
 				5D9C471517AC611100D1CCE2 /* 111-user.png in Resources */,
+				5D93542717B03E5600A21992 /* blue_pin.png in Resources */,
+				5D93542917B03E5600A21992 /* pink_pin.png in Resources */,
+				5D93542A17B03E5600A21992 /* yellow_pin.png in Resources */,
+				5D93543117B0423600A21992 /* gray_pin.png in Resources */,
+				5D93543217B0423600A21992 /* orange_pin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +454,7 @@
 				5D99A3D617A964EB004A51F0 /* TourCell.m in Sources */,
 				5D99A3DA17A9CB57004A51F0 /* TourDescriptionViewController.m in Sources */,
 				5D9C470817AC03A700D1CCE2 /* TourPointViewController.m in Sources */,
+				5D93543517B04F9600A21992 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

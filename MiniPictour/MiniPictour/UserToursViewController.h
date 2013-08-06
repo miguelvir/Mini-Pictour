@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface UserToursViewController : PFQueryTableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate >
+@interface UserToursViewController : PFQueryTableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate , UIActionSheetDelegate>
 {
     PFUser *user;
+    UIImagePickerController *imagePicker;
 }
-
-@property (readonly, retain) PFUser *user;
 
 - (id)initWithClassName:(NSString *)aClassName forUser:(PFUser *)aUser;
 

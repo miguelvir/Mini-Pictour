@@ -8,23 +8,22 @@
 
 #import "NewTourPointViewController.h"
 #import "AFJSONRequestOperation.h"
+#import "MBProgressHUD.h"
 
 @interface NewTourPointViewController ()
-@property (retain) NSMutableArray *venuesName;
-@property (assign) CLLocationCoordinate2D coordinate;
-@property (retain) PFObject *tour;
-@property (retain) UIImage *image;
-@property (copy) NSString *tempVenue;
+    @property (retain) NSMutableArray *venuesName;
+    @property (assign) CLLocationCoordinate2D coordinate;
+    @property (retain) PFObject *tour;
+    @property (retain) UIImage *image;
+    @property (copy) NSDictionary *tempVenue;
 
-@property (assign) IBOutlet UITableView *tableView;
-@property (assign) IBOutlet UIButton *noTitleButton;
-@property (assign) IBOutlet UIActivityIndicatorView * loadingIndicator;
-@property (assign) IBOutlet UIView *backView;
+    @property (assign) IBOutlet UITableView *tableView;
+    @property (assign) IBOutlet UIButton *noTitleButton;
 @end
 
 @implementation NewTourPointViewController
 
-@synthesize tableView, noTitleButton, loadingIndicator, backView;
+@synthesize tableView, noTitleButton;
 @synthesize venuesName, coordinate, tour, image,  tempVenue;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,9 +60,8 @@
                               lastObject] valueForKey:@"items"];
             int count = 0;
             
-            
             for (NSDictionary *venueData in data) {
-                self.tempVenue = [[venueData objectForKey:@"venue"] objectForKey:@"name"];
+                self.tempVenue = [venueData objectForKey:@"venue"];
                 [self tableView:tableView commitEditingStyle:UITableViewCellEditingStyleInsert forRowAtIndexPath:[NSIndexPath indexPathForRow:count inSection:0]];
                 count++;
             }
@@ -91,19 +89,20 @@
     if(!cell){
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    cell.textLabel.text = [venuesName objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[venuesName objectAtIndex:indexPath.row] objectForKey:@"name"];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *title = [venuesName objectAtIndex:indexPath.row];
-    [self createTourPointWithTitle:title];
+    NSString *title = [[venuesName objectAtIndex:indexPath.row] objectForKey:@"name"];
+    NSDictionary *location = [[venuesName objectAtIndex:indexPath.row] objectForKey:@"location"];
+    [self createTourPointWithTitle:title andCoordinate:CLLocationCoordinate2DMake([[location objectForKey:@"lat"] doubleValue], [[location objectForKey:@"lng"] doubleValue])];
 }
 
-- (void)createTourPointWithTitle:(NSString *)title
+- (void)createTourPointWithTitle:(NSString *)title andCoordinate:(CLLocationCoordinate2D) coordinate;
 {
-    [self beginLoading];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSData *imageData = UIImagePNGRepresentation(image);
     PFFile *imageFile = [PFFile fileWithData:imageData];
@@ -117,27 +116,19 @@
     
     [newTourPoint saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(succeeded){
-            [self goBack];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [self goBack];
+            });            
         }
     }];
 }
-- (void)beginLoading
-{
-    [loadingIndicator startAnimating];
-    
-    [self.view bringSubviewToFront:loadingIndicator];
-    
-    [backView setAlpha:0.3];
-    
-    tableView.delegate = nil;
-    
-    [noTitleButton setEnabled:NO];    
-}
+
 
 - (IBAction)noTitleButtonTapped:(UIButton *)sender
 {
     NSString *title = [NSString stringWithFormat:@"Location: %f , %f",coordinate.latitude, coordinate.longitude];
-    [self createTourPointWithTitle:title];
+    [self createTourPointWithTitle:title andCoordinate:coordinate];
 }
 
 - (void)goBack

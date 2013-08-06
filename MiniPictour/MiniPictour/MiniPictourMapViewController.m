@@ -81,6 +81,10 @@
         aView.annotation = annotation;
         aView.canShowCallout = YES;
         aView.pinColor = myAnnotation.headColor;
+        UIImage *pinColorImage = [UIImage imageNamed:@"pink_pin.png"];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:pinColorImage];
+        [aView addSubview:imageView];
+        [imageView release];
         return [aView autorelease];
         
     } else {

@@ -9,6 +9,7 @@
 #import "TourCreationViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TourViewController.h"
+#import "MBProgressHUD.h"
 @interface TourCreationViewController ()
     @property (assign) IBOutlet UITextField *tourNameField;
     @property (assign) IBOutlet UITextView *tourDescriptionField;
@@ -33,23 +34,14 @@
 - (void)beginLoading
 {
     [tourDescriptionField resignFirstResponder];
-    [tourDescriptionField setEditable:NO];
-    
     [tourNameField resignFirstResponder];
-    [tourNameField setEnabled:NO];
-    
-    [saveButton setEnabled:NO];
-    
-    [scrollView setAlpha:0.3];
-    
-    [loadingIndicator startAnimating];
-    [self.view bringSubviewToFront:loadingIndicator];
 }
+
 - (IBAction)saveTourTapped:(UIButton *)sender
 {
     if (tourNameField.text && tourDescriptionField){
         [self beginLoading];
-    
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         NSData *imageData = UIImagePNGRepresentation(self.imageView.image);
         PFFile *imageFile = [PFFile fileWithData:imageData];
         //[imageFile saveInBackground];
@@ -70,11 +62,14 @@
         [firstPoint setObject:newTour forKey:@"tour"];
         [firstPoint saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                TourViewController *tourController = [[TourViewController alloc] initWithTour:newTour];
-                UINavigationController *navcon = self.navigationController;
-                [navcon popViewControllerAnimated:NO];
-                [navcon pushViewController:tourController animated:YES];
-                [tourController release];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    TourViewController *tourController = [[TourViewController alloc] initWithTour:newTour];
+                    UINavigationController *navcon = self.navigationController;
+                    [navcon popViewControllerAnimated:NO];
+                    [navcon pushViewController:tourController animated:YES];
+                    [tourController release];
+                });                
             }
         }];
    

@@ -12,11 +12,13 @@
 #import "TourDescriptionViewController.h"
 
 @interface UserToursViewController ()
+    @property (readonly, retain) PFUser *user;
+    @property (retain) UIImagePickerController *imagePicker;
 @end
 
 @implementation UserToursViewController
 
-@synthesize user;
+@synthesize user, imagePicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -83,29 +85,46 @@
     [addTour release];
 
     self.textKey = @"title";
-    self.imageKey = @"image";
+    //self.imageKey = @"image";
     self.paginationEnabled = NO;
 }
 
 - (void)newTour
 {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    if (!imagePicker){
+        imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+    }
+    
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Add a new Point" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take a Photo",@"Select from Gallery", nil];
         
-        // Allow editing of image ?
-        imagePicker.allowsEditing = YES;
-        
-        imagePicker.showsCameraControls = YES;
+        [actionSheet showFromTabBar:self.tabBarController.tabBar];
     } else {
         imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:imagePicker animated:YES completion:NULL];
     }
-    imagePicker.delegate= self;
-    [self presentViewController:imagePicker animated:YES completion:NULL];
-    [imagePicker release];
+    
     
 }
 
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"Muajaja");
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePicker.allowsEditing = YES;
+            imagePicker.showsCameraControls = YES;
+            break;
+        case 1:
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            break;
+        default:
+            return;
+    }
+    [self presentViewController:imagePicker animated:YES completion:NULL];
+}
 - (void)imagePickerController:(UIImagePickerController *)picker
         didFinishPickingImage:(UIImage *)image
                   editingInfo:(NSDictionary *)editingInfo
