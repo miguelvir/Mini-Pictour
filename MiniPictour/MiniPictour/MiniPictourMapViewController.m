@@ -13,12 +13,14 @@
 @interface MiniPictourMapViewController ()
 @property (assign) IBOutlet MKMapView *mapView;
 @property (retain) PFUser *user;
+@property (retain) NSArray *colors;
 @end
 
 @implementation MiniPictourMapViewController
 @synthesize userInitialLocation;
 @synthesize mapView;
 @synthesize user;
+@synthesize colors;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +36,7 @@
     self = [super init];
     if (self) {
         self.user = user;
+        self.colors = @[@"red",@"green",@"purple",@"gray_pin.png",@"orange_pin.png",@"blue_pin.png", @"pink_pin.png",@"yellow_pin.png"];
     }
     return self;
 }
@@ -46,7 +49,7 @@
         int count = 0;
         int actualColor = 0;
         for (PFObject *tour in objects) {
-            actualColor = (count % 3);
+            actualColor = (count % 8);
             count++;
             PFQuery *query2 = [PFQuery queryWithClassName:@"TourPoint"];
             [query2 whereKey:@"tour" equalTo:tour];
@@ -80,11 +83,16 @@
         
         aView.annotation = annotation;
         aView.canShowCallout = YES;
-        aView.pinColor = myAnnotation.headColor;
-        UIImage *pinColorImage = [UIImage imageNamed:@"pink_pin.png"];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:pinColorImage];
-        [aView addSubview:imageView];
-        [imageView release];
+        if(myAnnotation.headColor < 2){
+            aView.pinColor = myAnnotation.headColor;
+        }else{
+            UIImage *pinColorImage = [UIImage imageNamed:[self.colors objectAtIndex:myAnnotation.headColor]];
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:pinColorImage];
+            [aView addSubview:imageView];
+            [imageView release];
+        }
+        
+        
         return [aView autorelease];
         
     } else {
