@@ -34,8 +34,8 @@
 		5D9044B5179DBB7200445280 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9044AA179DBB7200445280 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		5D9044B6179DBB7200445280 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9044AC179DBB7200445280 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		5D9044B7179DBB7200445280 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9044AE179DBB7200445280 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5D9044BB179DD4F800445280 /* MiniPictourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9044B9179DD4F800445280 /* MiniPictourViewController.m */; };
-		5D9044BC179DD4F800445280 /* MiniPictourViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9044BA179DD4F800445280 /* MiniPictourViewController.xib */; };
+		5D9044BB179DD4F800445280 /* UserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9044B9179DD4F800445280 /* UserLoginViewController.m */; };
+		5D9044BC179DD4F800445280 /* UserLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9044BA179DD4F800445280 /* UserLoginViewController.xib */; };
 		5D9044BE179DD80800445280 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9044BD179DD80800445280 /* Parse.framework */; };
 		5D9044C8179DD89100445280 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9044BF179DD89100445280 /* AudioToolbox.framework */; };
 		5D9044C9179DD89100445280 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9044C0179DD89100445280 /* CFNetwork.framework */; };
@@ -46,6 +46,8 @@
 		5D9044CE179DD89100445280 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9044C5179DD89100445280 /* QuartzCore.framework */; };
 		5D9044CF179DD89100445280 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9044C6179DD89100445280 /* StoreKit.framework */; };
 		5D9044D0179DD89100445280 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9044C7179DD89100445280 /* SystemConfiguration.framework */; };
+		5D906B0317B4017E00895E09 /* 112-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D906B0217B4017E00895E09 /* 112-group.png */; };
+		5D930A3417B2C5CD00B565B3 /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D930A3317B2C5CD00B565B3 /* UsersViewController.m */; };
 		5D93366417A6DDD700C86F21 /* TourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93366217A6DDD700C86F21 /* TourViewController.m */; };
 		5D93366517A6DDD700C86F21 /* TourViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D93366317A6DDD700C86F21 /* TourViewController.xib */; };
 		5D93366917A71AA700C86F21 /* NewTourPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93366717A71AA700C86F21 /* NewTourPointViewController.m */; };
@@ -119,9 +121,9 @@
 		5D9044AC179DBB7200445280 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		5D9044AD179DBB7200445280 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		5D9044AE179DBB7200445280 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		5D9044B8179DD4F800445280 /* MiniPictourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniPictourViewController.h; sourceTree = "<group>"; };
-		5D9044B9179DD4F800445280 /* MiniPictourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniPictourViewController.m; sourceTree = "<group>"; };
-		5D9044BA179DD4F800445280 /* MiniPictourViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPictourViewController.xib; sourceTree = "<group>"; };
+		5D9044B8179DD4F800445280 /* UserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginViewController.h; sourceTree = "<group>"; };
+		5D9044B9179DD4F800445280 /* UserLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginViewController.m; sourceTree = "<group>"; };
+		5D9044BA179DD4F800445280 /* UserLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserLoginViewController.xib; sourceTree = "<group>"; };
 		5D9044BD179DD80800445280 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		5D9044BF179DD89100445280 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5D9044C0179DD89100445280 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -132,6 +134,9 @@
 		5D9044C5179DD89100445280 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5D9044C6179DD89100445280 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5D9044C7179DD89100445280 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5D906B0217B4017E00895E09 /* 112-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group.png"; sourceTree = "<group>"; };
+		5D930A3217B2C5CD00B565B3 /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersViewController.h; sourceTree = "<group>"; };
+		5D930A3317B2C5CD00B565B3 /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersViewController.m; sourceTree = "<group>"; };
 		5D93366117A6DDD700C86F21 /* TourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourViewController.h; sourceTree = "<group>"; };
 		5D93366217A6DDD700C86F21 /* TourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourViewController.m; sourceTree = "<group>"; };
 		5D93366317A6DDD700C86F21 /* TourViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourViewController.xib; sourceTree = "<group>"; };
@@ -260,9 +265,9 @@
 			children = (
 				5D9043BE179DA7C700445280 /* MiniPictourAppDelegate.h */,
 				5D9043BF179DA7C700445280 /* MiniPictourAppDelegate.m */,
-				5D9044B8179DD4F800445280 /* MiniPictourViewController.h */,
-				5D9044B9179DD4F800445280 /* MiniPictourViewController.m */,
-				5D9044BA179DD4F800445280 /* MiniPictourViewController.xib */,
+				5D9044B8179DD4F800445280 /* UserLoginViewController.h */,
+				5D9044B9179DD4F800445280 /* UserLoginViewController.m */,
+				5D9044BA179DD4F800445280 /* UserLoginViewController.xib */,
 				5DB78B26179F25660071BC97 /* MiniPictourMapViewController.h */,
 				5DB78B27179F25660071BC97 /* MiniPictourMapViewController.m */,
 				5DB78B28179F25660071BC97 /* MiniPictourMapViewController.xib */,
@@ -287,6 +292,8 @@
 				5D9C470517AC03A700D1CCE2 /* TourPointViewController.h */,
 				5D9C470617AC03A700D1CCE2 /* TourPointViewController.m */,
 				5D9C470717AC03A700D1CCE2 /* TourPointViewController.xib */,
+				5D930A3217B2C5CD00B565B3 /* UsersViewController.h */,
+				5D930A3317B2C5CD00B565B3 /* UsersViewController.m */,
 				5D9043B6179DA7C700445280 /* Supporting Files */,
 			);
 			path = MiniPictour;
@@ -310,6 +317,7 @@
 				5D9C470D17AC611100D1CCE2 /* 73-radar.png */,
 				5D9C470E17AC611100D1CCE2 /* 103-map.png */,
 				5D9C470F17AC611100D1CCE2 /* 111-user.png */,
+				5D906B0217B4017E00895E09 /* 112-group.png */,
 				5D9043B7179DA7C700445280 /* MiniPictour-Info.plist */,
 				5D9043B8179DA7C700445280 /* InfoPlist.strings */,
 				5D9043BB179DA7C700445280 /* main.m */,
@@ -404,7 +412,7 @@
 				5D9043C4179DA7C700445280 /* Default@2x.png in Resources */,
 				5D9043C6179DA7C700445280 /* Default-568h@2x.png in Resources */,
 				5D9043D2179DAE8600445280 /* FacebookSDKResources.bundle in Resources */,
-				5D9044BC179DD4F800445280 /* MiniPictourViewController.xib in Resources */,
+				5D9044BC179DD4F800445280 /* UserLoginViewController.xib in Resources */,
 				5DB78B2A179F25660071BC97 /* MiniPictourMapViewController.xib in Resources */,
 				5D93469C17A061DA00A75FAA /* TourCreationViewController.xib in Resources */,
 				5D93366517A6DDD700C86F21 /* TourViewController.xib in Resources */,
@@ -422,6 +430,7 @@
 				5D93542A17B03E5600A21992 /* yellow_pin.png in Resources */,
 				5D93543117B0423600A21992 /* gray_pin.png in Resources */,
 				5D93543217B0423600A21992 /* orange_pin.png in Resources */,
+				5D906B0317B4017E00895E09 /* 112-group.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +452,7 @@
 				5D9044B5179DBB7200445280 /* AFURLConnectionOperation.m in Sources */,
 				5D9044B6179DBB7200445280 /* AFXMLRequestOperation.m in Sources */,
 				5D9044B7179DBB7200445280 /* UIImageView+AFNetworking.m in Sources */,
-				5D9044BB179DD4F800445280 /* MiniPictourViewController.m in Sources */,
+				5D9044BB179DD4F800445280 /* UserLoginViewController.m in Sources */,
 				5DB78B29179F25660071BC97 /* MiniPictourMapViewController.m in Sources */,
 				5D93469717A045D000A75FAA /* Annotation.m in Sources */,
 				5D93469B17A061DA00A75FAA /* TourCreationViewController.m in Sources */,
@@ -455,6 +464,7 @@
 				5D99A3DA17A9CB57004A51F0 /* TourDescriptionViewController.m in Sources */,
 				5D9C470817AC03A700D1CCE2 /* TourPointViewController.m in Sources */,
 				5D93543517B04F9600A21992 /* MBProgressHUD.m in Sources */,
+				5D930A3417B2C5CD00B565B3 /* UsersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

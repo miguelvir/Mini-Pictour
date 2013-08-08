@@ -46,9 +46,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    editSaveTourPointButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editTourPoint)];
-    self.navigationItem.rightBarButtonItem = editSaveTourPointButton;
-    self.editing = NO;
+    if([[[[self.tourPoint objectForKey:@"tour"]objectForKey:@"creator"] objectId] isEqual:[PFUser currentUser].objectId]){
+        editSaveTourPointButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editTourPoint)];
+        self.navigationItem.rightBarButtonItem = editSaveTourPointButton;
+        self.editing = NO;
+    }
     
     tourPointDescription.text = [tourPoint valueForKey:@"details"];
     [tourPointDescription.layer setBorderColor:[UIColor lightGrayColor].CGColor];

@@ -8,9 +8,11 @@
 
 #import "MiniPictourAppDelegate.h"
 #import <Parse/Parse.h>
-#import "MiniPictourViewController.h"
+#import "UserLoginViewController.h"
 #import "UserToursViewController.h"
 #import "MiniPictourMapViewController.h"
+#import "UsersViewController.h"
+
 @implementation MiniPictourAppDelegate
 
 - (void)dealloc
@@ -54,11 +56,17 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFFacebookUtils initializeFacebook];
     //Application main controller:
-    MiniPictourViewController *userViewController = [[MiniPictourViewController alloc] init];
-    userViewController.title = @"User account";
-    userViewController.tabBarItem.image = [UIImage imageNamed:@"111-user.png"];
+    UserLoginViewController *userLoginViewController = [[UserLoginViewController alloc] init];
+    userLoginViewController.title = @"User account";
+    userLoginViewController.tabBarItem.image = [UIImage imageNamed:@"111-user.png"];
         UITabBarController  *mainController = [[UITabBarController alloc] init];
-    [mainController setViewControllers:@[userViewController]];
+    
+    
+    UsersViewController *usersViewController = [[UsersViewController alloc] init];
+    usersViewController.title = @"Users";
+    usersViewController.tabBarItem.image = [UIImage imageNamed:@"112-group.png"];
+    
+    
     if ([PFUser currentUser]){
         //User Tours:
         UserToursViewController *userTours = [[UserToursViewController alloc] initWithClassName:@"Tour" forUser:[PFUser currentUser]];
@@ -73,13 +81,17 @@
         [mainController setViewControllers:
             @[[[[UINavigationController alloc]initWithRootViewController:userTours ] autorelease] ,
               [[[UINavigationController alloc]initWithRootViewController:map ] autorelease] ,
-              userViewController]];
+              [[[UINavigationController alloc]initWithRootViewController:usersViewController ] autorelease],
+              userLoginViewController]];
         [userTours release];
         [map release];
+    }else{
+        [mainController setViewControllers:@[[[[UINavigationController alloc]initWithRootViewController:usersViewController] autorelease],userLoginViewController]];
     }
     self.window.rootViewController = mainController;
     
-    [userViewController release];
+    [userLoginViewController release];
+    [usersViewController release];
     [mainController release];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

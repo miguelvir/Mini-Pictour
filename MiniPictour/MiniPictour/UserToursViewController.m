@@ -80,9 +80,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIBarButtonItem *addTour = [[UIBarButtonItem alloc]initWithTitle:@"New Tour" style:UIBarButtonItemStylePlain target:self action:@selector(newTour)];
-    self.navigationItem.rightBarButtonItem = addTour;
-    [addTour release];
+    
+    if ( [self.user isEqual:[PFUser currentUser]]){
+        UIBarButtonItem *addTour = [[UIBarButtonItem alloc]initWithTitle:@"New Tour" style:UIBarButtonItemStylePlain target:self action:@selector(newTour)];
+        self.navigationItem.rightBarButtonItem = addTour;
+        [addTour release];
+    }
 
     self.textKey = @"title";
     //self.imageKey = @"image";
@@ -112,7 +115,6 @@
 {
     switch (buttonIndex) {
         case 0:
-            NSLog(@"Muajaja");
             imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
             imagePicker.allowsEditing = YES;
             imagePicker.showsCameraControls = YES;

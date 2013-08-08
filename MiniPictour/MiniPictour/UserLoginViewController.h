@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import <FacebookSDK/FacebookSDK.h>
-@interface MiniPictourViewController : UIViewController //<UIWebViewDelegate>
+@interface UserLoginViewController : UIViewController //<UIWebViewDelegate>
 {
     IBOutlet UIActivityIndicatorView *loadingImage;
     IBOutlet UIButton *login_logoutButton;

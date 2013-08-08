@@ -6,18 +6,19 @@
 //  Copyright (c) 2013 Miguel Elvir. All rights reserved.
 //
 
-#import "MiniPictourViewController.h"
+#import "UserLoginViewController.h"
 #import "MiniPictourMapViewController.h"
 #import "UserToursViewController.h"
+#import "UsersViewController.h"
 
-@interface MiniPictourViewController ()
+@interface UserLoginViewController ()
 @property (assign) IBOutlet UIActivityIndicatorView *loadingImage;
 @property (assign) IBOutlet UIButton *login_logoutButton;
 @property (assign) IBOutlet UIView *imageView;
 @property (retain) FBProfilePictureView *userImage;
 @end
 
-@implementation MiniPictourViewController
+@implementation UserLoginViewController
 
 @synthesize loadingImage, login_logoutButton, userImage, imageView;
 
@@ -52,7 +53,7 @@
         [PFUser logOut];
         [self.login_logoutButton setTitle:@"Log in" forState:UIControlStateNormal];
         self.userImage.profileID = nil;
-        [self.tabBarController setViewControllers:@[self] animated:YES];
+        [self.tabBarController setViewControllers:@[[self.tabBarController.viewControllers objectAtIndex:2], self] animated:YES];
     } else {
         [self.loadingImage startAnimating];
         NSArray *permissionsArray = @[ @"basic_info"];
@@ -113,12 +114,20 @@
     map.tabBarItem.image = [UIImage imageNamed:@"103-map.png"];
     UINavigationController *navTours2 = [[UINavigationController alloc]initWithRootViewController:map];
 
-    [self.tabBarController setViewControllers:@[navTours,navTours2, self] animated:YES];
+    
+    UsersViewController *usersViewController = [[UsersViewController alloc] init];
+    usersViewController.title = @"Users";
+    usersViewController.tabBarItem.image = [UIImage imageNamed:@"112-group.png"];
+    UINavigationController *navTours3 = [[UINavigationController alloc] initWithRootViewController:usersViewController];
+    
+    [self.tabBarController setViewControllers:@[navTours,navTours2,navTours3, self] animated:YES];
     [self.tabBarController setSelectedIndex:0];
     [userTours release];
     [navTours release];
     [map release];
     [navTours2 release];
+    [usersViewController release];
+    [navTours3 release];
 }
 
 

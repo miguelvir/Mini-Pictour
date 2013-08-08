@@ -41,8 +41,18 @@
     return self;
 }
 
+- (void)clearAnnotations
+{
+    id userLocation = [mapView userLocation];
+    [mapView removeAnnotations:[mapView annotations]];
+    
+    if ( userLocation != nil ) {
+        [mapView addAnnotation:userLocation]; // will cause user location pin to blink
+    }
+}
 - (void)loadTours
 {
+    [self clearAnnotations];
     PFQuery *query = [PFQuery queryWithClassName:@"Tour"];
     [query whereKey:@"creator" equalTo:user];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -57,7 +67,9 @@
                 for (PFObject *tourPoint in objects) {
                     Annotation *tempAnnotation = [Annotation annotationWithTourPoint:tourPoint];
                     tempAnnotation.headColor = actualColor;
-                    [mapView addAnnotation: tempAnnotation];
+                    if (![mapView.annotations containsObject:tempAnnotation]){
+                        [mapView addAnnotation: tempAnnotation];
+                    }
                 }
             }];
         }
@@ -109,19 +121,14 @@
 }
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    if (!userInitialLocation)
-    {
-        self.userInitialLocation = userLocation.location;
+    self.userInitialLocation = userLocation.location;
         
-        MKCoordinateRegion region;
-        region.center = self.mapView.userLocation.coordinate;
-        region.span = MKCoordinateSpanMake(0.01, 0.01);
+    MKCoordinateRegion region;
+    region.center = self.mapView.userLocation.coordinate;
+    region.span = MKCoordinateSpanMake(0.01, 0.01);
         
-        region = [self.mapView regionThatFits:region];
-        [self.mapView setRegion:region animated:YES];
-        //[self.mapView addAnnotation:[[[Annotation alloc] initWithCLLocation:userInitialLocation.coordinate andTitle:@"Initial Location" andSubtitle:@"User initial location"]autorelease]];
-
-    }
+    region = [self.mapView regionThatFits:region];
+    [self.mapView setRegion:region animated:YES];
 }
 - (void)viewDidLoad
 {
@@ -129,12 +136,17 @@
     // Do any additional setup after loading the view from its nib.
     self.mapView.delegate = self;
     [self.mapView setShowsUserLocation:YES];
+    
+    UIBarButtonItem *refreshMap = [[UIBarButtonItem alloc]initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(loadTours)];
+    self.navigationItem.leftBarButtonItem = refreshMap;
+    
     UIBarButtonItem *addTour = [[UIBarButtonItem alloc]initWithTitle:@"New Tour" style:UIBarButtonItemStylePlain target:self action:@selector(newTour)];
     self.navigationItem.rightBarButtonItem = addTour;
+    
     [addTour release];
+    [refreshMap release];
     [self loadTours];
 
-    //[self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES ];
 }
 
 - (void)newTour
